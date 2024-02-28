@@ -3800,6 +3800,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/railsware/mailtrap-php" />
@@ -4011,7 +4014,7 @@
       <workItem from="1709051970409" duration="66000" />
       <workItem from="1709053637405" duration="360000" />
       <workItem from="1709054303570" duration="3009000" />
-      <workItem from="1709105604355" duration="17945000" />
+      <workItem from="1709105604355" duration="18631000" />
     </task>
     <servers />
   </component>
