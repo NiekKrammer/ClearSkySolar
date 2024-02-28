@@ -34,7 +34,12 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+<<<<<<< HEAD
     padding: 16px 7% 30px;
+=======
+    padding: 12px 7% 50px;
+    background-color: aqua;
+>>>>>>> ryan
 }
 
 .nav-logo {

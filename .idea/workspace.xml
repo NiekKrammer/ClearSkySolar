@@ -3980,7 +3980,11 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+<<<<<<< HEAD
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+=======
+    &quot;git-widget-placeholder&quot;: &quot;ryan&quot;,
+>>>>>>> ryan
     &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/qeuqen&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
