@@ -34,7 +34,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 7% 50px;
+    padding: 16px 7% 30px;
 }
 
 .nav-logo {
@@ -110,13 +110,13 @@ nav a:hover {
         left: -100vw;
         top: 0;
         background-color: #FFFFFF;
+        box-shadow: 4px 0 6px rgba(0, 0, 0, 0.05);
         height: 100vh;
         text-align: center;
         transition: 0.3s;
         z-index: 999;
         gap: 30px;
         padding: 40px;
-        border-left: 8px solid #8ec8f6;
     }
 
     .cart {
@@ -157,8 +157,8 @@ nav a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 100px;
-    height: calc(100dvh - 75px);
+    margin: 0 120px;
+    height: calc(100dvh - 134px);
 }
 
 .herosection h2 {
