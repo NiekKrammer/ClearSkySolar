@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container my-5">
+        <form method="post" action="{{ path('app_register') }}" class="form py-5 px-4 p-lg-5">
+            <h1 class="mb-4">Registratie</h1>
+            {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.username) }}
+            {{ form_row(registrationForm.plainPassword) }}
+            {{ form_row(registrationForm.confirmPassword) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.agreeTerms) }}
+            <button type="submit" class="form_submit_button">Registreer</button>
+            <div class="d-flex mt-3 gap-1 form_div">
+                <p class="m-0 p-0">Heb je al een account?</p>
+                <a href="{{ path('app_login') }}" class="form_link">Log in</a>
+            </div>
+            {{ form_errors(registrationForm) }}
+            {{ form_end(registrationForm) }}
+        </form>
+    </div>
+{% endblock %}

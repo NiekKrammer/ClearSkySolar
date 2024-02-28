@@ -1,0 +1,88 @@
+<nav>
+    <a href="{{ path('app_default') }}"><img src="{{ asset('assets/logos/logo_clearskysolar.png') }}" alt="logo"
+                                             class="nav-logo"></a>
+    <div class="nav-menu">
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('app_admin') }}">admin</a>
+        {% endif %}
+        {% if app.user %}
+            {% if app.request.attributes.get('_route') != 'app_order_history' %}
+                <a href="{{ path('app_order_history') }}">bestellingen</a>
+            {% else %}
+                <!-- Add your link for the "app_order_history" page -->
+                <a href="{{ path('app_default') }}">startpagina</a>
+            {% endif %}
+        {% endif %}
+        {% if app.user %}
+            <a href="{{ path('app_logout') }}">uitloggen</a>
+        {% else %}
+            <a href="{{ path('app_login') }}">inloggen</a>
+        {% endif %}
+        <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+           aria-controls="offcanvasRight" class="cart"><i
+                    class="fa-solid fa-cart-shopping cart-icon text-black"><span
+                        class="counter"
+                        id="cart-counter"></span></i></a>
+    </div>
+
+    <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar-middle"></span>
+        <span class="bar"></span>
+    </div>
+
+</nav>
+
+<!-- Mobile screen cart icon -->
+<a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+   aria-controls="offcanvasRight" class="cart_mobile"><i
+            class="fa-solid fa-cart-shopping cart-icon text-black"><span
+                class="counter"
+                id="cart-counter"></span></i></a>
+
+<!-- Shopping app -->
+<div class="offcanvas offcanvas-end shopping_cart" tabindex="-1" id="offcanvasRight"
+     aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+        <h4 class="offcanvas-title" id="offcanvasRightLabel">Winkelwagen</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body cart d-flex flex-column justify-content-between">
+
+        <!-- added products -->
+        <div id="cart-content">
+        </div>
+
+        <div>
+            <p id="total-price"></p>
+            {% if app.request.get('_route') == "app_order" %}
+                <a class="order_btn" href="{{ path('app_order') }}">Wijzig Bestelling</a>
+            {% else %}
+                <a class="order_btn" href="{{ path('app_order') }}">Verder naar bestellen</a>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Hamburger menu
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
+
+    hamburger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    }
+
+    const navLink = document.querySelectorAll(".nav-menu .nav-link");
+
+    navLink.forEach((n) => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }
+</script>

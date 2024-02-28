@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container my-5">
+        {% for message in app.flashes('registration_success') %}
+            <div class="alert alert-success my-4 mx-auto text-center col-12 col-lg-6">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <form action="{{ path('app_login') }}" method="post" class="form py-5 px-4 p-lg-5">
+            <h1 class="mb-4">Log in</h1>
+
+            {% if errorMessage %}
+                <p class="text-danger">
+                    {{ errorMessage }}
+                </p>
+            {% endif %}
+
+            <div class="mb-3">
+                <label for="inputUsername" class="form-label">Gebruikersnaam</label>
+                <input type="text" value="{{ last_username }}" name="username" id="inputUsername"
+                       class="form-control" autocomplete="username" required autofocus>
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword" class="form-label">Wachtwoord</label>
+                <input type="password" name="password" id="inputPassword" class="form-control"
+                       autocomplete="current-password" required>
+            </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <button class="form_submit_button" type="submit">Log in</button>
+            <div class="d-flex mt-3 gap-1 form_div">
+                <p class="m-0 p-0">Heb je nog geen account?</p>
+                <a href="{{ path('app_register') }}" class="form_link">Registreer hier</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

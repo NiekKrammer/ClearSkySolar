@@ -1,0 +1,141 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('/fonts/Donkin.otf') format('opentype');
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'MyFont', sans-serif;
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    background-color: #fffefe;
+}
+
+/* -- Navbar -- */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to left, #9cd5aa, #68b38e);
+    padding: 1.4rem 9%;
+}
+
+nav .logo {
+    color: #252323;
+    font-size: 24px;
+}
+
+nav ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+}
+
+nav a {
+    color: #3a3530;
+    text-decoration: none;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+i {
+    position: relative;
+}
+
+span {
+    position: absolute;
+    font-weight: 400;
+    right: -16px;
+    top: -14px;
+}
+
+@media only screen and (max-width: 600px) {
+    nav .logo {
+        font-size: 22px;
+    }
+}
+
+/* -- Login/register form input -- */
+.form {
+    border: 1px solid rgba(0, 0, 0, 0.11);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 8px;
+}
+
+.form-control, .form-check-input {
+    border-color: rgba(0, 0, 0, 0.32);
+}
+
+.form-check-label, .form-check-input {
+    cursor: pointer;
+}
+
+.form_button {
+    background: linear-gradient(to right, #6ba97e, #5fa988);
+    outline: none;
+    border: none;
+}
+
+.form_button:hover {
+    opacity: 0.8;
+}
+
+.form_link {
+    color: #5fa988;
+    text-decoration: none;
+}
+
+.form_link:hover {
+    text-decoration: underline;
+}
+
+.agreeTermsText {
+    transform: translateY(-2px);
+}
+
+@media only screen and (max-width: 600px) {
+    .form_div {
+        flex-direction: column;
+    }
+}
+
+/* -- Contact -- */
+.contact p:first-child {
+    font-size: 18px;
+    color: #0a0a0a;
+    font-weight: 700;
+}
+
+.contact p {
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.71);
+    margin: 7px 0;
+}
+
+/* -- Footer -- */
+footer {
+    margin-top: auto;
+    color: #252323;
+    text-align: center;
+    padding: 1rem;
+}
+
+footer p {
+    margin: 0;
+}
+

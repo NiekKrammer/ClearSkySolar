@@ -1,0 +1,92 @@
+/* -- Order Page-- */
+.order_page h1 {
+    color: #1c1c1c;
+    font-size: 30px;
+}
+
+/* -- added products div -- */
+.order {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.86);
+    border-radius: 10px;
+    padding: 25px;
+    width: fit-content;
+}
+
+.order_form {
+    max-width: 600px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.86);
+    box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
+    border-radius: 10px;
+    color: #1c1c1c;
+}
+
+@media only screen and (max-width: 800px) {
+    .order_form {
+     width: 100%;
+    }
+}
+
+.order_form span {
+    display: none;
+}
+
+.order p {
+    color: #1e1e1e;
+    font-weight: 450;
+    margin: 0;
+}
+
+.totalPrice {
+    color: #131313;
+    font-weight: 450;
+    font-size: 18px;
+}
+
+.placeOrderBtn {
+    color: black;
+    padding: 6px 26px;
+    background-color: #EFEFEF;
+    text-decoration: none;
+    border-style: solid;
+    border-width: 3px;
+    border-top-color: grey;
+    border-right-color: black;
+    border-bottom-color: black;
+    border-left-color: grey;
+}
+
+.placeOrderBtn:active {
+    border-top-color: black;
+    border-right-color: grey;
+    border-bottom-color: grey;
+    border-left-color: black;
+}
+
+/* -- Order History Page-- */
+.order_history h3 {
+    color: #1f1f1f;
+}
+
+.welcome_user_text {
+    font-size: 18px;
+    color: #1f1f1f;
+}
+
+.order_history_table {
+    box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
+}
+
+table {
+    overflow-x: scroll;
+}
+
+th, td, .order_history_list {
+    font-family: Helvetica, sans-serif;
+}
+

@@ -1,0 +1,130 @@
+/* -- Herosection -- */
+.herosection {
+    height: calc(100dvh - 80px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/images/backgrounds/image_hersosection.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.hero_div {
+    transform: translateY(-140px);
+}
+
+.hero_div h1 {
+    color: #211f1f;
+    font-size: 44px;
+    word-spacing: 4px;
+    letter-spacing: 4px;
+}
+
+.hero_div p {
+    color: #625e5e;
+}
+
+.arrow_down {
+    width: 60px;
+}
+
+@media only screen and (max-width: 800px) {
+    .hero_div {
+        transform: translateY(-50px);
+    }
+    .hero_div h1 {
+        font-size: 32px;
+    }
+    .arrow_down {
+        width: 40px;
+    }
+}
+
+/* -- Menu -- */
+h2 {
+    color: #34302c;
+    font-size: 32px;
+}
+
+@media (max-width: 600px) {
+    h2 {
+        font-size: 28px;
+    }
+}
+
+#the_menu {
+    scroll-margin-block-start: 70px;
+}
+
+#drinks, #desserts {
+    display: none;
+}
+
+@media (max-width: 355px) {
+    .filter_buttons {
+        flex-direction: column;
+        width: 125px;
+        margin: auto;
+    }
+}
+
+.filter_button {
+    background-image: linear-gradient(to right, #d9d9d9, #d2d1d1);
+    color: #333;
+    outline: none;
+    border: none;
+}
+
+.filter_button:hover {
+    opacity: 0.8;
+}
+
+.filter_button.active {
+    background: linear-gradient(to right, #6ba97e, #5fa988);
+    color: #fff;
+}
+
+.product {
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 0 0 15px 0;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.product:hover {
+    transform: scale(1.02);
+    transition: 0.2s;
+}
+
+.product img {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    object-fit: cover;
+}
+
+.product h3 {
+    color: #333;
+    text-align: center;
+    margin: 15px 0 2px 0;
+    font-size: 20px;
+}
+
+.product p {
+    color: rgba(0,0,0,0.67);
+}
+
+.product button {
+    color: #54a67d;
+    border-color: #54a67d;
+}
+
+.product .drinks_image {
+    width: 85px;
+    padding: 30px 0 10px;
+    object-fit: cover;
+}

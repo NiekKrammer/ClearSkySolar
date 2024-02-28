@@ -1,0 +1,40 @@
+/* -- Reviews -- */
+.review-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.review {
+    text-align: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: 80%;
+    max-width: 600px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.review i {
+    font-size: 22px;
+    color: orange;
+}
+
+.user-image i {
+    font-size: 32px;
+    color: #333;
+}
+
+.review h3 {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #3b3b3b;
+}
+
+.review p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: rgba(0,0,0,0.67);
+}

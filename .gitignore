@@ -1,0 +1,14 @@
+# Ignore vendor directory
+/vendor/
+
+# Ignore cache directories
+/var/cache/
+/var/log/
+
+# Ignore environment-specific files
+/.env.local
+/.env.local.php
+
+# Ignore temporary files
+/.phpunit.result.cache
+/.phpunit.cache

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container product_page">
+
+        <div class="d-flex my-3 col-12 mx-auto product_card" data-aos="fade-up" data-aos-duration="1000">
+            <img src="{{ asset('product_imgs/' ~ product.image_file) }}"
+                 alt="{{ product.name }}">
+            <div class="d-flex flex-column mt-3">
+                <h3>{{ product.name }}</h3>
+                <p>{{ product.description }}</p>
+
+                <p>{{ product.info }}</p>
+                <div class="mt-auto card_div">
+                    <p class="fw-semibold price">€ {{ product.price }}</p>
+                    <button class="btn btn-outline-success add_btn" data-product-id="{{ product.id }}"
+                            data-name="{{ product.name }}" data-price="{{ product.price }}"><i
+                                class="fa-solid fa-cart-shopping"></i> Plaats in winkelwagen
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
