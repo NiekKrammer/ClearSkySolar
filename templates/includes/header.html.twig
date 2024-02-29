@@ -5,11 +5,20 @@
         {% if is_granted('ROLE_ADMIN') %}
             <a href="{{ path('app_admin') }}">admin</a>
         {% endif %}
+
+        {% if app.request.attributes.get('_route') == 'app_default' and is_granted('ROLE_USER') %}
+            <a href="{{ path('app_statistieken') }}">mijn panelen</a>
+        {% endif %}
+
+        {% if app.request.attributes.get('_route') == 'app_statistieken' %}
+            <a href="{{ path('app_default') }}">startpagina</a>
+        {% endif %}
+
+
         {% if app.user %}
             {% if app.request.attributes.get('_route') != 'app_order_history' %}
                 <a href="{{ path('app_order_history') }}">bestellingen</a>
             {% else %}
-                <!-- Add your link for the "app_order_history" page -->
                 <a href="{{ path('app_default') }}">startpagina</a>
             {% endif %}
         {% endif %}

@@ -15,14 +15,14 @@ class OrderCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            Field::new('id', 'ID'),
-            Field::new('name', 'Name'),
-            Field::new('address', 'Address'),
-            Field::new('email', 'Email'),
-            Field::new('phoneNr', 'Phone Number'),
-            Field::new('date', 'Chosen Date'),
-            Field::new('time', 'Chosen Time'),
-            Field::new('ordered_at', 'Ordered at'),
+            Field::new('id', 'id'),
+            Field::new('name', 'naam'),
+            Field::new('address', 'adres'),
+            Field::new('email', 'email'),
+            Field::new('phoneNr', 'telefoonnummer'),
+            Field::new('date', 'afspraak datum'),
+            Field::new('time', 'afspraak tijd'),
+            Field::new('ordered_at', 'besteld op'),
         ];
     }
 }

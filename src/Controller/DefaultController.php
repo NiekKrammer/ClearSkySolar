@@ -13,11 +13,13 @@ class DefaultController extends AbstractController
 {
     private $entityManager;
     private $security;
+
     public function __construct(EntityManagerInterface $entityManager, Security $security)
     {
         $this->entityManager = $entityManager;
         $this->security = $security;
     }
+
     #[Route('/', name: 'app_default')]
     public function index(): Response
     {
@@ -33,6 +35,12 @@ class DefaultController extends AbstractController
         ]);
     }
 
+    #[Route('/statistieken', name: 'app_statistieken')]
+    public function viewStatistics(): Response
+    {
+        return $this->render('statistieken.html.twig');
+    }
+
     #[Route('/product/{name}', name: 'product_view')]
     public function viewProduct($name): Response
     {
@@ -46,5 +54,12 @@ class DefaultController extends AbstractController
             'product' => $product,
         ]);
     }
+
+    #[Route('/contact', name: 'app_contact')]
+    public function viewcontact(): Response
+    {
+        return $this->render('contact.html.twig');
+    }
+
 
 }

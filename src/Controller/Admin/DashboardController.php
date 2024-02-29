@@ -30,10 +30,10 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToCrud('Products', 'fa fa-utensils', Products::class);
-        yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
-        yield MenuItem::linkToCrud('Orders', 'fa-solid fa-table-list', Order::class);
-        yield MenuItem::linkToCrud('Order items', 'fa-solid fa-list-ul', OrderItems::class);
-        yield MenuItem::linkToUrl('Back to Homepage', 'fa-solid fa-arrow-left', $this->generateUrl('app_default'));
+        yield MenuItem::linkToCrud('Producten', 'fa fa-utensils', Products::class);
+        yield MenuItem::linkToCrud('Gebruikers', 'fa fa-users', User::class);
+        yield MenuItem::linkToCrud('Bestellingen', 'fa-solid fa-table-list', Order::class);
+        yield MenuItem::linkToCrud('Bestelde items', 'fa-solid fa-list-ul', OrderItems::class);
+        yield MenuItem::linkToUrl('Ga terug', 'fa-solid fa-arrow-left', $this->generateUrl('app_default'));
     }
 }

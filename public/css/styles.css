@@ -34,7 +34,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 7% 30px;
+    padding: 16px 6% 30px;
 }
 
 .nav-logo {
@@ -173,13 +173,8 @@ nav a:hover {
 }
 
 .herosection .hero_img {
-    width: 600px;
+    width: 450px;
     transition: 0.2s;
-}
-
-.herosection .hero_img:hover {
-    width: 600px;
-    filter: drop-shadow(0px 4px 10px rgba(59, 147, 208, 0.91));
 }
 
 .herosection h3 {
@@ -259,6 +254,9 @@ nav a:hover {
 }
 
 /* -- product page -- */
+.product_page {
+    margin-top: 50px;
+}
 .product_page .product_card {
     max-width: 1000px;
     background-color: white;
@@ -266,12 +264,16 @@ nav a:hover {
     padding: 50px;
 }
 
+.product_page .card_div {
+    transform: translateY(-2px);
+}
+
 .product_page .price {
     font-size: 20px;
 }
 
 .product_page img {
-    width: 250px;
+    width: 200px;
     margin-right: 35px;
 }
 
