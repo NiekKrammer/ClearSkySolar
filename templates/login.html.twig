@@ -2,12 +2,6 @@
 
 {% block body %}
     <div class="container my-5">
-        {% for message in app.flashes('registration_success') %}
-            <div class="alert alert-success my-4 mx-auto text-center col-12 col-lg-6">
-                {{ message }}
-            </div>
-        {% endfor %}
-
         <form action="{{ path('app_login') }}" method="post" class="form py-5 px-4 p-lg-5">
             <h1>Log in</h1>
             {% if errorMessage %}

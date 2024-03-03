@@ -24,8 +24,10 @@ body {
             hsl(210deg, 73%, 88%) 12%,
             hsl(211deg, 61%, 90%) 15%,
             hsl(211deg, 41%, 92%) 20%,
-            hsl(0, 0%, 96%) 50%
+            hsl(0, 0%, 96%) 50%,
+            white 100%
     );
+
 }
 
 /* -- navbar -- */
@@ -97,13 +99,13 @@ nav a:hover {
     background-color: #101010;
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 750px) {
     .cart_mobile {
         display: none;
     }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 750px) {
     .nav-menu {
         position: fixed;
         flex-direction: column;
@@ -161,7 +163,7 @@ nav a:hover {
     height: calc(100dvh - 134px);
 }
 
-.herosection h2 {
+.herosection h1 {
     font-size: 30px;
     word-spacing: 5px;
     letter-spacing: 3px;
@@ -175,19 +177,6 @@ nav a:hover {
 .herosection .hero_img {
     width: 450px;
     transition: 0.2s;
-}
-
-.herosection h3 {
-    letter-spacing: 3px;
-    font-size: 26px;
-}
-
-.arrow_div {
-    margin-top: 100px;
-}
-
-.arrow_down {
-    width: 45px;
 }
 
 @media (max-width: 800px) {
@@ -219,6 +208,10 @@ nav a:hover {
 }
 
 /* -- products - */
+.products {
+    margin-bottom: 50px;
+}
+
 .products .product_card {
     background-color: #ffffff;
     box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
@@ -277,3 +270,26 @@ nav a:hover {
     margin-right: 35px;
 }
 
+/* -- over ons-- */
+.over_ons p {
+    margin-bottom: 60px;
+}
+
+.over_ons_hr {
+    width: 250px;
+    margin-bottom: 70px;
+}
+
+.contact_link {
+    color: white;
+    background-color: #3b82f6;
+    text-decoration: none;
+    padding: 8px 24px;
+    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
+    border-radius: 3px;
+    border: none;
+}
+
+.contact_link:hover {
+    background-color: #3776de;
+}

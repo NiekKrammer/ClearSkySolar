@@ -29,22 +29,16 @@
 
 .order_btn {
     color: black;
-    background-color: #EFEFEF;
+    background-color: #fefbe7;
     text-decoration: none;
     padding: 10px 26px;
-    border-style: solid;
-    border-top-color: grey;
-    border-right-color: black;
-    border-bottom-color: black;
-    border-left-color: grey;
-    white-space: nowrap;
+    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
+    border-radius: 3px;
+    border: none;
 }
 
-.order_btn:active {
-    border-top-color: black;
-    border-right-color: grey;
-    border-bottom-color: grey;
-    border-left-color: black;
+.order_btn:hover {
+    background-color: #f3ecd2;
 }
 
 #total-price {

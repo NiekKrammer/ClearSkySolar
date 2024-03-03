@@ -1,11 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+    <!-- flash messages -->
     {% for message in app.flashes('order_success') %}
         <div class="alert alert-success mx-auto my-5 p-4 text-center" style="width: fit-content;">
             {{ message }}
         </div>
     {% endfor %}
+
+    {% for message in app.flashes('registration_success') %}
+        <div class="alert alert-success my-4 mx-auto text-center" style="width: fit-content;">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <div class="herosection">
         <div class="row d-flex align-items-center justify-content-center text-center">
             <div class="col-xl-6 my-5">
@@ -20,10 +29,11 @@
         </div>
     </div>
 
+    <!-- producten -->
     <div class="container products">
         <div class="row">
             <h2 class="text-center">Onze producten</h2>
-            <p class="text-center px-5">Een afspraak kan op de bestelpagina
+            <p class="text-center px-5 mb-4">Een afspraak kan op de bestelpagina
                 worden gemaakt.</p>
 
             {% for product in products %}
@@ -44,29 +54,32 @@
         </div>
     </div>
 
-    <div class="text-center container col-md-6 col-8">
-        <h2 class="mt-5">Over Ons</h2>
-        <hr class="m-auto w-50 mb-5">
-        <h3>Wie zijn wij?</h3>
-        <p class="mb-5"> Welkom bij ClearSkySolar, uw partner in duurzame energieoplossingen in Nederland. Wij zijn
+    <!-- over ons -->
+    <div class="text-center container col-md-6 col-8 over_ons">
+        <h2 class="mt-5" data-aos="fade-right" data-aos-duration="1200">Over Ons</h2>
+        <hr class="mx-auto over_ons_hr">
+        <h3 data-aos="fade-right" data-aos-duration="1200">Wie zijn wij?</h3>
+        <p> Welkom bij ClearSkySolar, uw partner in duurzame energieoplossingen in Nederland. Wij zijn
             gepassioneerd
             door het leveren van hoogwaardige zonnepaneeloplossingen die niet alleen de energie-efficiëntie van uw huis
             of bedrijf verbeteren, maar ook bijdragen aan een schonere en groenere toekomst.</p>
-        <h3>Onze Missie</h3>
+        <h3 data-aos="fade-right" data-aos-duration="1200">Onze Missie</h3>
 
-        <p class="mb-5">Bij ClearSkySolar hebben we ons tot doel gesteld om de transitie naar hernieuwbare energie te versnellen en
+        <p>Bij ClearSkySolar hebben we ons tot doel gesteld om de transitie naar hernieuwbare energie te
+            versnellen en
             tegelijkertijd onze klanten te voorzien van de best mogelijke service en ondersteuning. We geloven dat
             duurzame energie niet alleen een verantwoordelijkheid is, maar ook een kans om te innoveren en positieve
             veranderingen teweeg te brengen.</p>
     </div>
 
-    <div class="over_ons text-center container col-md-6 col-8">
-        <h4>Neem Contact Met Ons Op</h4>
-        <p>Of u nu geïnteresseerd bent in het installeren van zonnepanelen op uw woning of bedrijf, of
+    <!-- contact -->
+    <div class="text-center container col-md-6 col-8">
+        <h4 data-aos="fade-right" data-aos-duration="1200">Neem Contact Met Ons Op</h4>
+        <p class="mb-4">Of u nu geïnteresseerd bent in het installeren van zonnepanelen op uw woning of bedrijf, of
             gewoon meer wilt weten over de voordelen van zonne-energie, het team van ClearSkySolar staat voor u klaar.
             Neem vandaag nog contact met ons op voor een vrijblijvend adviesgesprek en ontdek hoe u kunt profiteren van
             de kracht van de zon.</p>
-        <a href="{{ path('app_contact') }}">Neem contact op</a>
+        <a href="{{ path('app_contact') }}" class="contact_link">Neem contact op</a>
     </div>
 
 {% endblock %}

@@ -49,23 +49,17 @@
 }
 
 .placeOrderBtn {
-    color: black;
-    padding: 6px 26px;
-    background-color: #EFEFEF;
+    color: white;
+    background-color: #3b82f6;
     text-decoration: none;
-    border-style: solid;
-    border-width: 3px;
-    border-top-color: grey;
-    border-right-color: black;
-    border-bottom-color: black;
-    border-left-color: grey;
+    padding: 10px 26px;
+    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
+    border-radius: 3px;
+    border: none;
 }
 
-.placeOrderBtn:active {
-    border-top-color: black;
-    border-right-color: grey;
-    border-bottom-color: grey;
-    border-left-color: black;
+.placeOrderBtn:hover {
+    background-color: #3776de;
 }
 
 /* -- Order History Page-- */
