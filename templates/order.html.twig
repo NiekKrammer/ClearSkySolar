@@ -4,8 +4,9 @@
     <div class="container my-4 order_page">
 
         <h1 class="text-center mb-2">Bestelling</h1>
-        <p class="text-center fw-light mb-4">Wijziging van je bestelling kan in de winkelwagen.</p>
+        <p class="text-center fw-light mb-4">Het wijzigen van je bestelling kan in de winkelwagen</p>
         <div id="order-list"></div>
+        <p id="empty_cart" style="text-align: center; margin: 10px 0; color: #0a53be"></p>
         <p id="total-price-order" class="text-center my-5 totalPrice"></p>
 
         {% for message in app.flashes('order_empty') %}
@@ -13,6 +14,7 @@
                 {{ message }}
             </div>
         {% endfor %}
+
 
         <form method="post" action="{{ path('app_order') }}" class="mx-auto my-5 p-5 order_form">
             {{ form_start(form) }}

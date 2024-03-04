@@ -43,25 +43,18 @@ nav {
     width: 250px;
 }
 
-.nav-menu {
-    display: flex;
-    gap: 16px;
-    list-style: none;
-    margin: 0;
-}
-
-li {
-    list-style: none;
-}
-
 nav a {
-    color: #1c1c1c;
-    text-decoration: none;
+    color: #212529;
 }
 
 nav a:hover {
     opacity: 0.9;
 }
+
+/*.dropdown-toggle {*/
+/*    background-color: #545252;*/
+/*    border: none;*/
+/*}*/
 
 .cart-icon {
     position: relative;
@@ -74,93 +67,14 @@ nav a:hover {
     top: -14px;
 }
 
-.hamburger {
-    display: none;
-}
-
-.bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: #101010;
-}
-
-.bar-middle {
-    display: block;
-    width: 25px;
-    height: 3px;
-    transform: translateX(4px);
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background-color: #101010;
-}
-
-@media only screen and (min-width: 750px) {
-    .cart_mobile {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 750px) {
-    .nav-menu {
-        position: fixed;
-        flex-direction: column;
-        left: -100vw;
-        top: 0;
-        background-color: #FFFFFF;
-        box-shadow: 4px 0 6px rgba(0, 0, 0, 0.05);
-        height: 100vh;
-        text-align: center;
-        transition: 0.3s;
-        z-index: 999;
-        gap: 30px;
-        padding: 40px;
-    }
-
-    .cart {
-        display: none;
-    }
-
-    .cart_mobile {
-        position: absolute;
-        right: 90px;
-        top: 47px;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
-
-    .hamburger.active .bar-middle {
-        opacity: 0;
-    }
-
-    .hamburger.active .bar:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
-
-    .hamburger.active .bar:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-}
 
 /* -- herosection - */
 .herosection {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 120px;
-    height: calc(100dvh - 134px);
+    margin: 30px 120px;
+    height: calc(100vh - 134px);
 }
 
 .herosection h1 {
@@ -176,16 +90,18 @@ nav a:hover {
 
 .herosection .hero_img {
     width: 450px;
-    transition: 0.2s;
 }
 
 @media (max-width: 800px) {
-    .herosection h2 {
+    .products {
+        margin-top: 75px;
+    }
+    .herosection h1 {
         font-size: 24px;
     }
 
     .herosection .hero_img {
-        width: 400px;
+        width: 350px;
     }
 
     .herosection h3 {

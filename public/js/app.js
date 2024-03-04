@@ -17,6 +17,8 @@ const cartContent = document.getElementById("cart-content");
 const cartCounter = document.getElementById("cart-counter");
 const totalPrice = document.getElementById("total-price");
 const orderList = document.getElementById("order-list");
+const empty_cart = document.getElementById('empty_cart');
+const shoppingCart = JSON.parse(localStorage.getItem("shopping-cart"));
 const totalPriceOrder = document.getElementById("total-price-order");
 const orderForm = document.querySelector('.order_form');
 
@@ -56,6 +58,10 @@ function updateLocalStorage() {
 function getLocalStorage() {
     const cartJSON = localStorage.getItem('shopping-cart');
     return JSON.parse(cartJSON) || [];
+}
+
+if (!shoppingCart || shoppingCart.length === 0) {
+    empty_cart.textContent = 'Je winkelwagen is leeg';
 }
 
 function updateSidebar() {

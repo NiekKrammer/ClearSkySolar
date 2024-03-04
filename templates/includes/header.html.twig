@@ -1,55 +1,52 @@
 <nav>
     <a href="{{ path('app_default') }}"><img src="{{ asset('assets/logos/logo_clearskysolar.png') }}" alt="logo"
                                              class="nav-logo"></a>
-    <div class="nav-menu">
-        {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ path('app_admin') }}">admin</a>
-        {% endif %}
 
-        {% if app.request.attributes.get('_route') == 'app_default' and is_granted('ROLE_USER') %}
-            <a href="{{ path('app_statistieken') }}">mijn panelen</a>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+        {% if app.request.attributes.get('_route') != 'app_default' %}
+            <a href="{{ path('app_default') }}" class="mx-2">startpagina</a>
         {% endif %}
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                <i class="fa-solid fa-user"></i></button>
+            <ul class="dropdown-menu">
 
-        {% if app.request.attributes.get('_route') == 'app_statistieken' %}
-            <a href="{{ path('app_default') }}">startpagina</a>
-        {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('app_admin') }}" class="dropdown-item">admin</a>
+                {% endif %}
+
+                {% if app.user %}
+                    {% if app.request.attributes.get('_route') != 'app_statistieken' %}
+
+                        <a href="{{ path('app_statistieken') }}" class="dropdown-item">mijn panelen</a>
+                    {% endif %}
+
+                    {% if app.request.attributes.get('_route') != 'app_order_history' %}
+                        <li><a href="{{ path('app_order_history') }}" class="dropdown-item">bestellingen</a></li>
+                    {% endif %}
+                {% endif %}
 
 
-        {% if app.user %}
-            {% if app.request.attributes.get('_route') != 'app_order_history' %}
-                <a href="{{ path('app_order_history') }}">bestellingen</a>
-            {% else %}
-                <a href="{{ path('app_default') }}">startpagina</a>
-            {% endif %}
-        {% endif %}
-        {% if app.user %}
-            <a href="{{ path('app_logout') }}">uitloggen</a>
-        {% else %}
-            <a href="{{ path('app_login') }}">inloggen</a>
-        {% endif %}
+                {% if app.user %}
+                    <li><a href="{{ path('app_logout') }}" class="dropdown-item">uitloggen</a></li>
+                {% else %}
+                    <li><a href="{{ path('app_login') }}" class="dropdown-item">inloggen</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+
         <a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
            aria-controls="offcanvasRight" class="cart"><i
-                    class="fa-solid fa-cart-shopping cart-icon text-black"><span
+                    class="fa-solid fa-cart-shopping cart-icon text-black mx-3"><span
                         class="counter"
                         id="cart-counter"></span></i></a>
     </div>
 
-    <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar-middle"></span>
-        <span class="bar"></span>
-    </div>
-
 </nav>
 
-<!-- Mobile screen cart icon -->
-<a href="#" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-   aria-controls="offcanvasRight" class="cart_mobile"><i
-            class="fa-solid fa-cart-shopping cart-icon text-black"><span
-                class="counter"
-                id="cart-counter"></span></i></a>
-
-<!-- Shopping app -->
+<!-- Shopping cart -->
 <div class="offcanvas offcanvas-end shopping_cart" tabindex="-1" id="offcanvasRight"
      aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
@@ -67,31 +64,10 @@
             {% if app.request.get('_route') == "app_order" %}
                 <a class="order_btn" href="{{ path('app_order') }}">Wijzig Bestelling</a>
             {% else %}
-                <a class="order_btn" href="{{ path('app_order') }}">Verder naar bestellen</a>
+                <a class="order_btn" href="{{ path('app_order') }}">Verder naar bestellen <i
+                            class="fa-solid fa-arrow-right mx-1"></i></a>
             {% endif %}
         </div>
 
     </div>
 </div>
-
-<script>
-    // Hamburger menu
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
-
-    hamburger.addEventListener("click", mobileMenu);
-
-    function mobileMenu() {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-    }
-
-    const navLink = document.querySelectorAll(".nav-menu .nav-link");
-
-    navLink.forEach((n) => n.addEventListener("click", closeMenu));
-
-    function closeMenu() {
-        hamburger.classList.remove("active");
-        navMenu.classList.remove("active");
-    }
-</script>
