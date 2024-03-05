@@ -52,8 +52,11 @@ nav a:hover {
 }
 
 /*.dropdown-toggle {*/
-/*    background-color: #545252;*/
+/*    background-color: #343232;*/
 /*    border: none;*/
+/*}*/
+/*.dropdown-toggle:hover {*/
+/*    background-color: #545050;*/
 /*}*/
 
 .cart-icon {
@@ -187,16 +190,22 @@ nav a:hover {
 }
 
 /* -- over ons-- */
-.over_ons p {
-    margin-bottom: 60px;
-}
-
 .over_ons_hr {
     width: 250px;
     margin-bottom: 70px;
 }
 
-.contact_link {
+.over_ons p {
+    margin-bottom: 60px;
+    word-spacing: 2px;
+}
+
+/* -- contact - */
+.contact p {
+    word-spacing: 2px;
+}
+
+.contact a {
     color: white;
     background-color: #3b82f6;
     text-decoration: none;
@@ -206,6 +215,34 @@ nav a:hover {
     border: none;
 }
 
-.contact_link:hover {
+.contact a:hover {
+    background-color: #3776de;
+}
+
+/* -- contact page - */
+.contact_page form {
+    max-width: 800px;
+    margin: 25px auto;
+    background-color: rgba(255, 255, 255, 0.86);
+    box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
+    border-radius: 8px;
+    padding: 25px;
+}
+
+.contact_page h1 {
+    margin-bottom: 25px;
+}
+
+.contact_page button {
+    color: white;
+    background-color: #3b82f6;
+    text-decoration: none;
+    padding: 6px 24px;
+    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
+    border-radius: 3px;
+    border: none;
+}
+
+.contact_page button:hover {
     background-color: #3776de;
 }

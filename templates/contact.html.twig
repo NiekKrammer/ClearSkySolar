@@ -2,6 +2,20 @@
 
 {% block body %}
 
-    <h1>Contact</h1>
+    <div class="container contact_page">
+        <form>
+            <h1>Contact</h1>
+
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Bericht</label>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Verstuur</button>
+        </form>
+    </div>
 
 {% endblock %}
