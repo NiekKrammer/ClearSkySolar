@@ -6,7 +6,7 @@
         <h1 class="text-center mb-2">Bestelling</h1>
         <p class="text-center fw-light mb-4">Het wijzigen van je bestelling kan in de winkelwagen</p>
         <div id="order-list"></div>
-        <p id="empty_cart" style="text-align: center; margin: 10px 0; color: #0a53be"></p>
+        <p id="empty_cart" style="text-align: center; margin: 10px 0;"></p>
         <p id="total-price-order" class="text-center my-5 totalPrice"></p>
 
         {% for message in app.flashes('order_empty') %}
@@ -21,9 +21,7 @@
 
             <!-- Hidden field to submit JSON data -->
             <input type="hidden" id="cartData" name="cartData" value="">
-
             <h4 class="mb-5 text-center">Vul hier je gegevens in</h4>
-
             {{ form_row(form.name) }}
             {{ form_row(form.address) }}
             {{ form_row(form.email) }}
@@ -35,5 +33,26 @@
         </form>
 
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script>
+        $(document).ready(function () {
+            // Disable weekends and style dates
+            $('.myDate').datepicker({
+                beforeShowDay: function (date) {
+                    let day = date.getDay();
+                    if (day === 0 || day === 6) { // Sunday (0) and Saturday (6)
+                        return [false, 'weekend']; // Disable weekends
+                    } else {
+                        return [true, 'weekday']; // Enable weekdays
+                    }
+                },
+                dateFormat: 'yy-mm-dd' // Set date format
+            });
+        });
+    </script>
 
 {% endblock %}

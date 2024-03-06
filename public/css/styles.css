@@ -67,7 +67,6 @@ nav a:hover {
     top: -14px;
 }
 
-
 /* -- herosection - */
 .herosection {
     display: flex;
@@ -181,6 +180,7 @@ nav a:hover {
 
 .product_page .price {
     font-size: 20px;
+    margin-bottom: 8px;
 }
 
 .product_page img {

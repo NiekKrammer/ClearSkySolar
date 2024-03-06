@@ -21,25 +21,30 @@ class OrderType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'Naam *',
-
+                "required"=>true,
             ])
             ->add('address', TextType::class, [
                 'label' => 'Adres *',
+                "required"=>true,
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Email *',
+                "required"=>true,
             ])
             ->add('phoneNr', TelType::class, [
                 'label' => 'Telefoonnummer',
                 'required' => false,
             ])
             ->add('date', DateType::class, [
-                'label' => 'Datum voor de afspraak',
+                'label' => 'Datum voor de afspraak *',
+                "required"=>true,
                 'widget' => 'single_text',
                 'data' => new \DateTime('now'),
+                'attr' => ['class' => 'myDate']
             ])
             ->add('time', TimeType::class, [
-                'label' => 'Tijd',
+                'label' => 'Tijd *',
+                "required"=>true,
                 'data' => new \DateTime('now'),
             ]);
     }

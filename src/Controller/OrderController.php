@@ -99,21 +99,16 @@ class OrderController extends AbstractController
         $phpmailer->Password = '67a481dd00090e37922f82e2d6f458d4';
         $phpmailer->Port = 587;
 
-        $phpmailer->setFrom('qeuqen@niekkrammer.nl', 'Qeuqen');
+        $phpmailer->setFrom('clearskysolar@niekkrammer.nl', 'ClearSkySolar');
         $phpmailer->addAddress($userEmail);
 
         $name = $form->get('name')->getData();
 
         $phpmailer->isHTML(true);
-        $phpmailer->Subject = 'Bestelling';
+        $phpmailer->Subject = 'Bestelling ClearSkySolar';
 
-        $deliveryOptionText = 'ophalen';
-
-
-        $orderDetails = '<p style="font-size: 15px; color: #0a0a0a;">Beste ' . $name . ', je hebt gekozen voor <strong>' . $deliveryOptionText . '</strong>. Hier zijn de details:</p>';
-        $orderDetails .= '<p style="color: #0a0a0a;">Je bestelling is geplaatst op: ' . $orderedAt->format('d-m-Y H:i') . '</p>';
-        $orderDetails .= '<p style="color: #0a0a0a;">Gekozen datum en tijd: ' . $order->getDate()->format('d-m-Y') . $order->getTime()->format(' H:i') . '</p>';
-
+        $orderDetails = '<p style="font-size: 15px; color: #0a0a0a;">Beste ' . $name . ', hier zijn de details van je bestelling:</p>';
+        $orderDetails .= '<p style="color: #0a0a0a;">Je bestelling wordt geleverd op ' . $order->getDate()->format('d-m-Y') . $order->getTime()->format(' H:i') . '</p>';
 
         $orderDetails .= '<h2 style="font-size: 18px; color: #0a0a0a;">Bestelde items:</h2>
                 <ul>';
@@ -127,11 +122,11 @@ class OrderController extends AbstractController
 
         $orderDetails .= '<p style="color: #0a0a0a;">Totale prijs: &euro;' . number_format($totalPrice, 2, '.', ',') . '</p>';
 
-        $phpmailer->Body = '<div style="background: linear-gradient(to left, #9cd5aa, #68b38e); padding: 20px;">
-                <h1 style="margin: 0; padding: 0; color: #0a0a0a;">Qeuqen</h1>
+        $phpmailer->Body = '<div style="background-color: rgba(48,75,231,0.54); padding: 20px;">
+                <h1 style="margin: 0; padding: 0; color: #0a0a0a;">ClearSkySolar</h1>
                     <h1 style="font-size: 22px; color: #0a0a0a;">Bevestiging van uw bestelling</h1>
                     ' . $orderDetails . '
-                    <a href="http://queqen.niekkrammer.nl" style="color: black; padding: 7px 26px; 
+                    <a href="http://localhost/clearskysolar/public/" style="color: black; padding: 7px 26px; 
                     background-color: #EFEFEF; text-decoration: none; border-style: solid; border-width: 3px; border-top-color: grey; 
                     border-right-color: black; border-bottom-color: black; border-left-color: grey; font-weight: bold;">Ga terug naar de website</a>
                 </div>';

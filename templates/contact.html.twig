@@ -5,14 +5,23 @@
     <div class="container contact_page">
         <form>
             <h1>Contact</h1>
-
+            <div class="row mb-3">
+                <div class="col">
+                    <label for="firstName" class="form-label">Voornaam</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="firstName" class="form-label">Achternaam</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             </div>
-            <div class="form-floating">
-                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Bericht</label>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Bericht</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-primary mt-3">Verstuur</button>
         </form>

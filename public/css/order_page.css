@@ -54,7 +54,6 @@
     text-decoration: none;
     padding: 10px 26px;
     box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
-    border-radius: 3px;
     border: none;
 }
 
@@ -84,3 +83,12 @@ th, td, .order_history_list {
     font-family: Helvetica, sans-serif;
 }
 
+/* Style for weekends */
+.weekend a.ui-state-default {
+    color: red !important;
+}
+
+/* Style for weekdays */
+.weekday a.ui-state-default {
+    color: green;
+}
