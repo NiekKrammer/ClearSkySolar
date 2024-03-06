@@ -16,18 +16,20 @@ class ProductsCrudController extends AbstractCrudController
     {
         return Products::class;
     }
+
     public function configureFields(string $pageName): iterable
     {
-        yield IdField::new('id')->setFormTypeOption('disabled', true);
-        yield Field::new('name');
-        yield Field::new('price');
-        yield BooleanField::new('available')->setFormTypeOption('data', true);
-        yield ImageField::new('image_file', 'Image')
+        yield IdField::new('id')->setLabel('id')->setFormTypeOption('disabled', true);
+        yield Field::new('name')->setLabel('naam');
+        yield Field::new('price')->setLabel('prijs');
+        yield BooleanField::new('available')->setLabel('beschikbaar')->setFormTypeOption('data', true);
+        yield ImageField::new('image_file')->setLabel('foto')
             ->setRequired(false)
             ->setBasePath('product_imgs')
             ->setUploadDir('public/product_imgs')
             ->setUploadedFileNamePattern('[randomhash].[extension]');
-        yield TextField::new('description');
-        yield Field::new('info');
+        yield TextField::new('description')->setLabel('beschrijving');
+        yield Field::new('info')->setLabel('informatie');
     }
+
 }

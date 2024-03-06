@@ -24,8 +24,7 @@ body {
             hsl(210deg, 73%, 88%) 12%,
             hsl(211deg, 61%, 90%) 15%,
             hsl(211deg, 41%, 92%) 20%,
-            hsl(0, 0%, 96%) 50%,
-            white 100%
+            hsl(0, 0%, 97%) 50%
     );
 
 }
@@ -51,13 +50,11 @@ nav a:hover {
     opacity: 0.9;
 }
 
-/*.dropdown-toggle {*/
-/*    background-color: #343232;*/
-/*    border: none;*/
-/*}*/
-/*.dropdown-toggle:hover {*/
-/*    background-color: #545050;*/
-/*}*/
+.dropdown-toggle {
+    background-color: #fff;
+    color: black;
+    border: none;
+}
 
 .cart-icon {
     position: relative;
@@ -99,6 +96,7 @@ nav a:hover {
     .products {
         margin-top: 75px;
     }
+
     .herosection h1 {
         font-size: 24px;
     }
@@ -132,9 +130,9 @@ nav a:hover {
 }
 
 .products .product_card {
-    background-color: #ffffff;
-    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
     max-width: 800px;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
     padding: 25px;
 }
 
@@ -169,10 +167,11 @@ nav a:hover {
 .product_page {
     margin-top: 50px;
 }
+
 .product_page .product_card {
     max-width: 1000px;
-    background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
     padding: 50px;
 }
 
@@ -191,8 +190,11 @@ nav a:hover {
 
 /* -- over ons-- */
 .over_ons_hr {
-    width: 250px;
+    width: 275px;
     margin-bottom: 70px;
+    height: 3px;
+    border: none;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
 .over_ons p {

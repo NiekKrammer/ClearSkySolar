@@ -16,9 +16,9 @@ class OrderItemsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            AssociationField::new('order_item_id', 'Order ID'),
-            Field::new('item'),
-            Field::new('price', 'Total price'),
+            AssociationField::new('order_item_id', 'bestellingsnummer'),
+            Field::new('item', 'items'),
+            Field::new('price', 'totale prijs'),
         ];
     }
 }

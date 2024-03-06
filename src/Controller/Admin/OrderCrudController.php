@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use App\Entity\Order;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 
 class OrderCrudController extends AbstractCrudController
 {
@@ -15,14 +16,18 @@ class OrderCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            Field::new('id', 'id'),
-            Field::new('name', 'naam'),
-            Field::new('address', 'adres'),
-            Field::new('email', 'email'),
-            Field::new('phoneNr', 'telefoonnummer'),
-            Field::new('date', 'afspraak datum'),
-            Field::new('time', 'afspraak tijd'),
-            Field::new('ordered_at', 'besteld op'),
+            Field::new('id', 'ID'),
+            Field::new('name', 'Naam'),
+            Field::new('address', 'Adres'),
+            Field::new('email', 'E-mail'),
+            Field::new('phoneNr', 'Telefoonnummer'),
+            Field::new('date', 'Afspraak Datum'),
+            Field::new('time', 'Afspraak Tijd'),
+            Field::new('ordered_at', 'Besteld op'),
+            AssociationField::new('username', 'Gebruikersnaam')->formatValue(function ($value, $entity) {
+                return $value ? $value->getUsername() : '';
+            }),
         ];
     }
+
 }
