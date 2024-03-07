@@ -18,8 +18,9 @@
 }
 
 .order_form {
-    max-width: 600px;
+    max-width: 650px;
     border: none;
+    padding: 40px 30px;
     background-color: rgba(255, 255, 255, 0.86);
     box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
     border-radius: 10px;

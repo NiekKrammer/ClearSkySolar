@@ -77,15 +77,19 @@ class DefaultController extends AbstractController
                 $phpmailer->Port = 587;
                 $phpmailer->Username = 'api';
                 $phpmailer->Password = '67a481dd00090e37922f82e2d6f458d4';
-
                 $phpmailer->setFrom('clearskysoloar@niekkrammer.nl');
                 $phpmailer->addAddress('niekkrammer@gmail.com', 'ClearSkySolar');
                 $phpmailer->addAddress('6000785@mborijnland.nl', 'ClearSkySolar');
+                $phpmailer->addAddress('6033993@mborijnland.nl', 'ClearSkySolar');
+                $phpmailer->addAddress('1037847@mborijnland.nl', 'ClearSkySolar');
+                $phpmailer->addAddress('6030413@mborijnland.nl', 'ClearSkySolar');
+                $phpmailer->addAddress('1029344@mborijnland.nl', 'ClearSkySolar');
+
                 $phpmailer->isHTML(true);
                 $phpmailer->Subject = 'Contact Formulier';
                 $phpmailer->Body = "Naam: {$formData['firstName']} {$formData['lastName']}<br>E-mail: {$formData['email']}<br>Bericht: {$formData['message']}";
 
-                $this->addFlash('contact_success', 'Je enail is succesvol verstuurd! We nemen zo snel mogelijk contact met u op.');
+                $this->addFlash('contact_success', 'Je email is succesvol verstuurd! We nemen zo snel mogelijk contact op.');
                 $phpmailer->send();
 
                 return $this->redirectToRoute('app_contact');
