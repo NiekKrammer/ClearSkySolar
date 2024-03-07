@@ -40,7 +40,7 @@ class OrderType extends AbstractType
                 "required"=>true,
                 'widget' => 'single_text',
                 'data' => new \DateTime('now'),
-                'attr' => ['class' => 'myDate']
+                'attr' => ['class' => 'datepicker']
             ])
             ->add('time', TimeType::class, [
                 'label' => 'Tijd *',

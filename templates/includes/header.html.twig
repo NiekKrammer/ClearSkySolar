@@ -33,6 +33,9 @@
                 {% else %}
                     <li><a href="{{ path('app_login') }}" class="dropdown-item">inloggen</a></li>
                 {% endif %}
+                {% if app.request.attributes.get('_route') != 'app_contact' %}
+                    <li><a href="{{ path('app_contact') }}" class="dropdown-item">contact</a></li>
+                {% endif %}
 
             </ul>
         </div>
