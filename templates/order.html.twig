@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container my-4 order_page">
 
+    <div class="container my-4 order_page">
         <h1 class="text-center mb-2">Bestelling</h1>
         <p class="text-center fw-light mb-4">Het wijzigen van je bestelling kan in de winkelwagen</p>
         <div id="order-list"></div>
@@ -15,6 +15,11 @@
             </div>
         {% endfor %}
 
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger" style="max-width: 400px; margin: 0 auto; text-align: center;">
+                {{ message }}
+            </div>
+        {% endfor %}
 
         <form method="post" action="{{ path('app_order') }}" class="mx-auto my-5 order_form">
             {{ form_start(form) }}
@@ -23,17 +28,41 @@
             <input type="hidden" id="cartData" name="cartData" value="">
 
             <h4 class="mb-5 text-center">Vul hier je gegevens in</h4>
-
             {{ form_row(form.name) }}
             {{ form_row(form.address) }}
             {{ form_row(form.email) }}
-            {{ form_row(form.phoneNr) }}
-            {{ form_row(form.date) }}
+                {{ form_row(form.date) }}
             {{ form_row(form.time) }}
+            {{ form_row(form.phoneNr) }}
             <button type="submit" id="place-order-button" class="placeOrderBtn">Plaats bestelling</button>
             {{ form_end(form) }}
         </form>
-
     </div>
+
+    <script>
+        $(function () {
+            const disabledDates = [
+                {% for order in orders %}
+                '{{ order.date|date('Y-m-d') }}',
+                {% endfor %}
+            ];
+
+            $('.datepicker').datepicker({
+                dateFormat: 'yy-mm-dd',
+                beforeShowDay: function (date) {
+                    const day = date.getDay();
+                    const isWeekend = (day === 6 || day === 0);
+
+                    const string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                    const isDisabled = disabledDates.indexOf(string) !== -1;
+
+                    return [!(isWeekend || isDisabled), ''];
+                },
+                onSelect: function (dateText) {
+                    $('#{{ form.date.vars.id }}').val(dateText);
+                }
+            });
+        });
+    </script>
 
 {% endblock %}

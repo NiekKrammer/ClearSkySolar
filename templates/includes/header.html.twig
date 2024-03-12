@@ -3,14 +3,17 @@
                                              class="nav-logo"></a>
 
     <div class="d-flex justify-content-center align-items-center gap-2">
-        {% if app.request.attributes.get('_route') != 'app_default' %}
-            <a href="{{ path('app_default') }}" class="mx-2">startpagina</a>
-        {% endif %}
+
         <div class="dropdown">
+
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                 <i class="fa-solid fa-user"></i></button>
             <ul class="dropdown-menu">
+                {% if app.user %}
+                <a href="{{ path('app_order_history') }}" class="dropdown-item my-0 py-0 username">{{ app.user.username }}</a>
+                    <hr class="my-1">
+                {% endif %}
 
                 {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('app_admin') }}" class="dropdown-item">admin</a>

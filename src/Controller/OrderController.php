@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Repository\OrderRepository;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -16,24 +17,38 @@ use App\Entity\OrderItems;
 class OrderController extends AbstractController
 {
     private EntityManagerInterface $entityManager;
+    private OrderRepository $orderRepository;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(EntityManagerInterface $entityManager, OrderRepository $orderRepository)
     {
         $this->entityManager = $entityManager;
+        $this->orderRepository = $orderRepository;
     }
+
 
     #[Route('/bestelling', name: 'app_order')]
     public function order(Request $request): Response
     {
         $order = new Order();
         $form = $this->createForm(OrderType::class, $order);
-
         $form->handleRequest($request);
 
+        // Haal alle orders op uit de repository
+        $orders = $this->orderRepository->findAll();
+
+        // Render het form
         if (!$form->isSubmitted() || !$form->isValid()) {
             return $this->render('order.html.twig', [
                 'form' => $form->createView(),
+                'orders' => $orders,
             ]);
+        }
+
+        if ($request->isMethod('POST')) {
+            if (!$this->getUser()) {
+                $this->addFlash('error', 'Je moet ingelogd zijn om een bestelling te plaatsen.');
+                return $this->redirectToRoute('app_order');
+            }
         }
 
         $userEmail = $form->get('email')->getData();

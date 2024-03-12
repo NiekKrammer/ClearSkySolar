@@ -19,10 +19,10 @@
 
 .order_form {
     max-width: 650px;
-    border: none;
     padding: 40px 30px;
     background-color: rgba(255, 255, 255, 0.86);
     box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+    border: 1px solid rgba(0, 0, 0, 0.10);
     border-radius: 10px;
     color: #1c1c1c;
 }
@@ -84,12 +84,4 @@ th, td, .order_history_list {
     font-family: Helvetica, sans-serif;
 }
 
-/* Style for weekends */
-.weekend a.ui-state-default {
-    color: red !important;
-}
-
-/* Style for weekdays */
-.weekday a.ui-state-default {
-    color: green;
-}
+/* Calender */
