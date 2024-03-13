@@ -68,7 +68,7 @@ class RegistrationController extends AbstractController
 
             $this->entityManager->persist($user);
             $this->entityManager->flush();
-            $this->addFlash('registration_success', 'Je registratie is succesvol voltooid! Je ontvangt een email ter bevestiging.');
+            $this->addFlash('registration_success', 'Je registratie is succesvol voltooid! Klik op je profiel om je account te bekijken.');
             $this->sendEmail($user);
 
             // Handmatig inloggen van de gebruiker na registratie

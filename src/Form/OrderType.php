@@ -32,10 +32,9 @@ class OrderType extends AbstractType
                 "required"=>true,
             ])
             ->add('date', DateType::class, [
-                'label' => 'Datum voor de afspraak *',
+                'label' => 'Kies een beschikbare afspraakdatum *',
                 "required" => true,
                 'widget' => 'single_text',
-                'data' => new \DateTime('now'),
                 'attr' => [
                     'class' => 'datepicker w-50',
                     'readonly' => 'readonly'

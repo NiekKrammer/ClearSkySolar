@@ -31,7 +31,8 @@
             {{ form_row(form.name) }}
             {{ form_row(form.address) }}
             {{ form_row(form.email) }}
-                {{ form_row(form.date) }}
+            <p></p>
+            {{ form_row(form.date) }}
             {{ form_row(form.time) }}
             {{ form_row(form.phoneNr) }}
             <button type="submit" id="place-order-button" class="placeOrderBtn">Plaats bestelling</button>
@@ -41,6 +42,7 @@
 
     <script>
         $(function () {
+            <!-- Haal alle afspraakdatums uit de database -->
             const disabledDates = [
                 {% for order in orders %}
                 '{{ order.date|date('Y-m-d') }}',
@@ -56,6 +58,7 @@
                     const string = jQuery.datepicker.formatDate('yy-mm-dd', date);
                     const isDisabled = disabledDates.indexOf(string) !== -1;
 
+                    <!-- Weekenden en onbeschikbare afspraakdatums worden disabled -->
                     return [!(isWeekend || isDisabled), ''];
                 },
                 onSelect: function (dateText) {

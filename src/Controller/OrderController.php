@@ -25,7 +25,6 @@ class OrderController extends AbstractController
         $this->orderRepository = $orderRepository;
     }
 
-
     #[Route('/bestelling', name: 'app_order')]
     public function order(Request $request): Response
     {

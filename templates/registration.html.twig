@@ -2,8 +2,11 @@
 
 {% block body %}
     <div class="container my-5">
-        <form method="post" action="{{ path('app_register') }}" class="form py-5 px-4 p-lg-5">
-            <h1 class="mb-4">Registratie</h1>
+        <form method="post" action="{{ path('app_register') }}" class="form">
+            <div class="d-flex flex-column justify-content-center align-items-center gap-2">
+                <img src="assets/images/user_icon.jpg">
+                <h1 class="mb-4">Registratie</h1>
+            </div>
             {{ form_start(registrationForm) }}
             {{ form_row(registrationForm.username) }}
             {{ form_row(registrationForm.plainPassword) }}

@@ -20,7 +20,7 @@
 .order_form {
     max-width: 650px;
     padding: 40px 30px;
-    background-color: rgba(255, 255, 255, 0.86);
+    background-color: #fff;
     box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
     border: 1px solid rgba(0, 0, 0, 0.10);
     border-radius: 10px;
@@ -83,5 +83,3 @@ table {
 th, td, .order_history_list {
     font-family: Helvetica, sans-serif;
 }
-
-/* Calender */

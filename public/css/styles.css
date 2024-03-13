@@ -180,7 +180,7 @@ nav .username {
     color: #fff;
 }
 
-/* -- product page -- */
+/* -- product info page -- */
 .product_page {
     margin-top: 50px;
 }
@@ -204,6 +204,7 @@ nav .username {
 
 .product_page img {
     width: 200px;
+    object-fit: cover;
     margin-right: 35px;
 }
 
