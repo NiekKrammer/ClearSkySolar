@@ -10,8 +10,8 @@
             <div class="d-flex flex-column mt-3">
                 <h3>{{ product.name }}</h3>
                 <p>{{ product.description }}</p>
-
                 <p>{{ product.info }}</p>
+                <p class="fw-semibold">{{ product.quantity }}</p>
                 <div class="mt-auto card_div">
                     <p class="fw-semibold price">€ {{ product.price }}</p>
                     <button class="btn btn-outline-success add_btn" data-product-id="{{ product.id }}"
@@ -19,7 +19,6 @@
                                 class="fa-solid fa-cart-shopping"></i> Plaats in winkelwagen
                     </button>
                 </div>
-
             </div>
         </div>
 

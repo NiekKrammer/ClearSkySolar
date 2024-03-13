@@ -15,17 +15,18 @@ body {
     flex-direction: column;
     background-image: linear-gradient(
             180deg,
-            hsl(201deg, 96%, 70%) 0%,
-            hsl(204deg, 95%, 75%) 2%,
-            hsl(206deg, 92%, 80%) 4%,
-            hsl(207deg, 89%, 83%) 6%,
-            hsl(208deg, 86%, 85%) 8%,
-            hsl(209deg, 80%, 87%) 10%,
-            hsl(210deg, 73%, 88%) 12%,
-            hsl(211deg, 61%, 90%) 15%,
-            hsl(211deg, 41%, 92%) 20%,
-            hsl(0, 0%, 97%) 50%
+            hsl(201, 96%, 70%) 0%,
+            hsl(204, 95%, 75%) 2%,
+            hsl(206, 92%, 80%) 4%,
+            hsl(207, 89%, 83%) 6%,
+            hsl(208, 86%, 85%) 8%,
+            hsl(209, 80%, 87%) 10%,
+            hsl(214, 59%, 88%) 12%,
+            hsl(227, 37%, 93%) 15%,
+            hsl(210, 25%, 95%) 20%,
+            hsl(0, 0%, 99%) 100%
     );
+
 }
 
 /* -- navbar -- */
@@ -72,7 +73,7 @@ nav .username {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     nav {
         display: flex;
         flex-direction: column;
@@ -104,42 +105,6 @@ nav .username {
     width: 450px;
 }
 
-@media (max-width: 800px) {
-    .products {
-        margin-top: 75px;
-    }
-
-    .herosection h1 {
-        font-size: 24px;
-    }
-
-    .herosection .hero_img {
-        width: 350px;
-    }
-
-    .herosection h3 {
-        font-size: 20px;
-    }
-
-    .products .product_card {
-        width: 95%;
-    }
-
-    .product_page .product_card {
-        width: 95%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .product_page img {
-        margin-bottom: 30px;
-    }
-
-    .contact_page form {
-        width: 95%;
-    }
-}
-
 /* -- products - */
 .products {
     margin-bottom: 50px;
@@ -150,8 +115,15 @@ nav .username {
     background-color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
     border: 1px solid rgba(0, 0, 0, 0.10);
-    padding: 25px;
+    padding: 28px;
+    border-radius: 15px;
 }
+
+.products .product_card:hover {
+    box-shadow: rgba(0, 0, 0, 0.39) 2px 2px 3px;
+    transition: 0.2s;
+}
+
 
 .products .product_card .product_img {
     object-fit: cover;
@@ -186,11 +158,12 @@ nav .username {
 }
 
 .product_page .product_card {
-    max-width: 900px;
+    max-width: 950px;
     background-color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
     border: 1px solid rgba(0, 0, 0, 0.10);
     padding: 45px;
+    border-radius: 15px;
 }
 
 .product_page .card_div {
@@ -204,8 +177,50 @@ nav .username {
 
 .product_page img {
     width: 200px;
+    max-height: 400px;
     object-fit: cover;
     margin-right: 35px;
+}
+
+
+@media (max-width: 800px) {
+    .product_page {
+        margin-top: 30px;
+    }
+
+    .products {
+        margin-top: 75px;
+    }
+
+    .herosection h1 {
+        font-size: 24px;
+    }
+
+    .herosection .hero_img {
+        width: 350px;
+    }
+
+    .herosection h3 {
+        font-size: 20px;
+    }
+
+    .products .product_card {
+        width: 95%;
+    }
+
+    .product_page .product_card {
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product_page img {
+        margin-bottom: 30px;
+    }
+
+    .contact_page form {
+        width: 95%;
+    }
 }
 
 /* -- over ons-- */
@@ -243,16 +258,19 @@ nav .username {
 
 /* -- contact page - */
 .contact_page form {
-    max-width: 650px;
+    max-width: 600px;
     margin: 40px auto;
     background-color: rgba(255, 255, 255, 0.86);
     box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
-    border-radius: 8px;
-    padding: 30px;
+    border-radius: 15px;
+    padding: 33px;
 }
 
-.contact_page h1 {
-    margin-bottom: 25px;
+.contact_page hr {
+    margin-bottom: 30px;
+    height: 2px;
+    border: none;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
 .contact_page button {

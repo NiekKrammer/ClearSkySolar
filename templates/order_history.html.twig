@@ -3,9 +3,15 @@
 {% block body %}
     <div class="container order_history px-3">
 
-        <h3 class="mt-4 mb-3">Bestelgeschiedenis</h3>
+        <h1 class="mt-4 mb-3">Bestelgeschiedenis</h1>
 
         <p class="welcome_user_text">Welkom, {{ app.user.username }} &#x1F44B;</p>
+        <!-- flash message -->
+        {% for message in app.flashes('order_success') %}
+            <div class="alert alert-success mx-auto my-5 p-4 text-center" style="width: fit-content;">
+                {{ message }}
+            </div>
+        {% endfor %}
         <div class="table-responsive mt-4 mb-5 order_history_table">
             <table class="table table-striped table-bordered">
                 <thead>
@@ -17,7 +23,7 @@
                     <th>Telefoonnummer</th>
                     <th>Gekozen datum</th>
                     <th>Gekozen tijd</th>
-                    <th>Items</th>
+                    <th>Bestelde producten</th>
                     <th>Totale prijs</th>
                     <th>Besteld op</th>
                 </tr>
@@ -37,8 +43,7 @@
                                 <p class="order_history_list">{{ orderItem.item }}</p>
                             {% endfor %}
                         </td>
-                        <td>
-                            €{{ order.getOrderItems()|map(item => item.price)|reduce((total, price) => total + price, 0)|number_format(2, '.', ',') }}</td>
+                        <td>€{{ order.getOrderItems()|map(item => item.price)|reduce((total, price) => total + price, 0)|number_format(2, '.', ',') }}</td>
                         <td>{{ order.getOrderedAt() ? order.getOrderedAt()|date('Y-m-d H:i:s') : '' }}</td>
                     </tr>
                 {% endfor %}

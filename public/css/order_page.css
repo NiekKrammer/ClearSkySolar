@@ -1,7 +1,6 @@
 /* -- Order Page-- */
 .order_page h1 {
     color: #1c1c1c;
-    font-size: 30px;
 }
 
 /* -- added products div -- */
@@ -18,12 +17,12 @@
 }
 
 .order_form {
-    max-width: 650px;
+    max-width: 600px;
     padding: 40px 30px;
     background-color: #fff;
     box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
     border: 1px solid rgba(0, 0, 0, 0.10);
-    border-radius: 10px;
+    border-radius: 15px;
     color: #1c1c1c;
 }
 
@@ -60,26 +59,4 @@
 
 .placeOrderBtn:hover {
     background-color: #3776de;
-}
-
-/* -- Order History Page-- */
-.order_history h3 {
-    color: #1f1f1f;
-}
-
-.welcome_user_text {
-    font-size: 18px;
-    color: #1f1f1f;
-}
-
-.order_history_table {
-    box-shadow: rgba(50, 50, 93, 0.25) 0 6px 12px -2px, rgba(0, 0, 0, 0.3) 0 3px 7px -3px;
-}
-
-table {
-    overflow-x: scroll;
-}
-
-th, td, .order_history_list {
-    font-family: Helvetica, sans-serif;
 }

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Products;
 use App\Form\ContactFormType;
+use App\Repository\OrderItemsRepository;
 use Exception;
 use PHPMailer\PHPMailer\PHPMailer;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,12 +41,6 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    #[Route('/statistieken', name: 'app_statistieken')]
-    public function viewStatistics(): Response
-    {
-        return $this->render('statistieken.html.twig');
-    }
-
     #[Route('/product/{name}', name: 'product_view')]
     public function viewProduct($name): Response
     {
@@ -57,6 +52,17 @@ class DefaultController extends AbstractController
 
         return $this->render('product.html.twig', [
             'product' => $product,
+        ]);
+    }
+
+    #[Route('/statistieken', name: 'app_statistieken')]
+    public function viewStatistics(): Response
+    {
+        $loggedInUser = $this->getUser();
+        $userOrders = $loggedInUser->getOrders();
+
+        return $this->render('statistieken.html.twig', [
+            'userOrders' => $userOrders,
         ]);
     }
 
@@ -84,9 +90,8 @@ class DefaultController extends AbstractController
                 $phpmailer->addAddress('1037847@mborijnland.nl', 'ClearSkySolar');
                 $phpmailer->addAddress('6030413@mborijnland.nl', 'ClearSkySolar');
                 $phpmailer->addAddress('1029344@mborijnland.nl', 'ClearSkySolar');
-
                 $phpmailer->isHTML(true);
-                $phpmailer->Subject = 'Contact Formulier';
+                $phpmailer->Subject = 'Contact';
                 $phpmailer->Body = "Naam: {$formData['firstName']} {$formData['lastName']}<br>E-mail: {$formData['email']}<br>Bericht: {$formData['message']}";
 
                 $this->addFlash('contact_success', 'Je email is succesvol verstuurd! We nemen zo snel mogelijk contact op.');

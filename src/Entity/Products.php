@@ -33,6 +33,9 @@ class Products
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $info = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $quantity = null;
+
 
     public function getId(): ?int
     {
@@ -107,6 +110,18 @@ class Products
     public function setInfo(?string $info): static
     {
         $this->info = $info;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?string
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(?string $quantity): static
+    {
+        $this->quantity = $quantity;
 
         return $this;
     }

@@ -14,37 +14,40 @@
             const ctx = document.getElementById('myChart');
 
             const panelData = {
-                "Solar Panel 3000": [310, 290, 236, 300, 265, 225, 305, 320, 340, 350, 365],
-                "Panel 2": [405, 370, 330, 300, 280, 300, 300, 315, 335, 345, 355],
-                "Panel 3": [325, 305, 335, 295, 315, 300, 340, 355, 375, 390, 400],
-                "Panel 4": [245, 230, 250, 215, 240, 225, 245, 285, 305, 315, 330],
-                "Panel 5": [265, 250, 270, 245, 260, 245, 285, 300, 320, 330, 345],
-                "Panel 6": [225, 210, 235, 195, 220, 200, 240, 255, 275, 285, 300],
-                "Panel 7": [285, 270, 295, 240, 280, 265, 305, 320, 340, 350, 365],
-                "Panel 8": [300, 285, 305, 270, 295, 275, 315, 335, 330, 365, 300]
+                {% for order in userOrders %}
+                {% for item in order.getOrderItems() %}
+                "{{ item.getItem() }}": [
+                    {% set data = [] %}
+                    {% for i in range(1, 13) %}
+                    {% set kWh = random(0, 500) %}
+                    {{ kWh }},
+                    {% endfor %}
+                ],
+                {% endfor %}
+                {% endfor %}
             };
 
             const panelNames = Object.keys(panelData);
 
             const chartData = {
-                labels: ['6 maanden geleden', '5 maanden geleden', '4 maanden geleden', '3 maanden geleden', '2 maanden geleden', '1 maand geleden', '4 weken geleden', '3 weken geleden', '2 weken geleden', '1 week geleden', 'Vandaag'],
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
                 datasets: panelNames.map((panelName, index) => ({
                     label: panelName,
-                    data: panelData[panelName],
+                    data: panelData[panelName].map(value => value < 500 ? value : 500), // Ensure values are less than 500
                     backgroundColor: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.5)`,
                     borderColor: `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 1)`,
-                    borderWidth: 1,
-                    fill: false
+                    borderWidth: 1
                 }))
             };
 
             const chart = new Chart(ctx, {
-                type: 'line',
+                type: 'bar',
                 data: chartData,
                 options: {
                     scales: {
                         y: {
-                            beginAtZero: false,
+                            beginAtZero: true,
+                            suggestedMax: 500,
                             title: {
                                 display: true,
                                 text: 'Power Output (kWh)'
@@ -53,34 +56,12 @@
                         x: {
                             title: {
                                 display: true,
-                                text: 'Date'
+                                text: 'Month'
                             }
                         }
                     }
                 }
             });
-
-            // Function to update chart data based on the selected panel
-            function updateChart(panelName) {
-                const panelIndex = panelNames.indexOf(panelName);
-                if (panelIndex !== -1) {
-                    const panelDataSet = chart.data.datasets[panelIndex];
-                    chart.data.datasets = [panelDataSet];
-                    chart.update();
-                }
-            }
-
-            // Add click event listener to the canvas
-            ctx.onclick = function (evt) {
-                const activePoint = chart.getElementsAtEventForMode(evt, 'nearest', {intersect: true}, false);
-
-                if (activePoint.length) {
-                    const clickedDatasetIndex = activePoint[0].datasetIndex;
-                    const clickedPanel = chart.data.datasets[clickedDatasetIndex].label;
-                    updateChart(clickedPanel);
-                }
-            };
         </script>
-
     </div>
 {% endblock %}

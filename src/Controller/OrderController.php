@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Controller;
 
 use App\Repository\OrderRepository;
+use App\Repository\UserRepository;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -18,11 +20,13 @@ class OrderController extends AbstractController
 {
     private EntityManagerInterface $entityManager;
     private OrderRepository $orderRepository;
+    private UserRepository $UserRepository;
 
-    public function __construct(EntityManagerInterface $entityManager, OrderRepository $orderRepository)
+    public function __construct(EntityManagerInterface $entityManager, OrderRepository $orderRepository, UserRepository $UserRepository)
     {
         $this->entityManager = $entityManager;
         $this->orderRepository = $orderRepository;
+        $this->UserRepository = $UserRepository;
     }
 
     #[Route('/bestelling', name: 'app_order')]
@@ -34,6 +38,15 @@ class OrderController extends AbstractController
 
         // Haal alle orders op uit de repository
         $orders = $this->orderRepository->findAll();
+
+        // Haal alle gegevens van de ingelogde gebruiker op
+        $user = $this->UserRepository->findAll();
+        $user = $this->getUser();
+
+        // Haal de ingelogde gebruiker zijn email op
+        if ($user) {
+            $loggedInUserEmail = $user->getEmail();
+        }
 
         // Render het form
         if (!$form->isSubmitted() || !$form->isValid()) {
@@ -115,14 +128,15 @@ class OrderController extends AbstractController
 
         $phpmailer->setFrom('clearskysolar@niekkrammer.nl', 'ClearSkySolar');
         $phpmailer->addAddress($userEmail);
-
+        $phpmailer->addAddress($loggedInUserEmail);
         $name = $form->get('name')->getData();
 
         $phpmailer->isHTML(true);
         $phpmailer->Subject = 'Bestelling ClearSkySolar';
 
         $orderDetails = '<p style="font-size: 15px; color: #0a0a0a;">Beste ' . $name . ', hier zijn de details van je bestelling:</p>';
-        $orderDetails .= '<p style="color: #0a0a0a;">Je bestelling wordt geleverd op ' . $order->getDate()->format('d-m-Y') . $order->getTime()->format(' H:i') . '</p>';
+        $orderDetails .= '<p style="color: #0a0a0a;">We komen langs op: ' . $order->getDate()->format('d-m-Y') . $order->getTime()->format(' H:i') . '</p>';
+        $orderDetails .= '<p><a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Bestelling%20bij%20ClearSkySolar&dates=' . $order->getDate()->format('Ymd') . 'T' . $order->getTime()->format('His') . 'Z/' . $order->getDate()->format('Ymd') . 'T' . $order->getTime()->format('His') . 'Z">Toevoegen aan Agenda</a></p>';
 
         $orderDetails .= '<h2 style="font-size: 18px; color: #0a0a0a;">Bestelde items:</h2>
                 <ul>';
@@ -136,24 +150,24 @@ class OrderController extends AbstractController
 
         $orderDetails .= '<p style="color: #0a0a0a;">Totale prijs: &euro;' . number_format($totalPrice, 2, '.', ',') . '</p>';
 
-        $phpmailer->Body = '<div style="background-color: rgba(48,75,231,0.54); padding: 20px;">
-                <h1 style="margin: 0; padding: 0; color: #0a0a0a;">ClearSkySolar</h1>
-                    <h1 style="font-size: 22px; color: #0a0a0a;">Bevestiging van uw bestelling</h1>
-                    ' . $orderDetails . '
-                    <a href="http://localhost/clearskysolar/public/" style="color: black; padding: 7px 26px; 
-                    background-color: #EFEFEF; text-decoration: none; border-style: solid; border-width: 3px; border-top-color: grey; 
-                    border-right-color: black; border-bottom-color: black; border-left-color: grey; font-weight: bold;">Ga terug naar de website</a>
-                </div>';
+        $phpmailer->Body = '<div style="background-color: #79BEE2FF; padding: 20px;">
+         <h1 style="color: #0a0a0a; margin-top: 0; margin-bottom: 18px;">ClearSkySolar</h1>
+            <h2 style="font-size: 22px; color: #0a0a0a;">Bevestiging van uw bestelling</h2>
+            ' . $orderDetails . '
+            <a href="http://localhost/clearskysolar/public/" style="color: black; padding: 10px 26px; 
+            background-color: #EFEFEF; text-decoration: none; border: none; 
+            font-weight: bold;">Ga terug naar de website</a>
+          </div>';
 
         try {
             $phpmailer->send();
             $this->addFlash('order_success', 'Je bestelling is succesvol geplaatst! Je ontvangt een e-mail ter bevestiging.');
-            return $this->redirectToRoute('app_default', ['clearStorage' => 1]);
+            return $this->redirectToRoute('app_order_history', ['clearStorage' => 1]);
 
         } catch (Exception $e) {
             echo "Bericht kon niet worden verzonden. Mailerfout: {$phpmailer->ErrorInfo}";
+            return $this->redirectToRoute('app_order');
         }
 
-        return $this->redirectToRoute('app_default');
     }
 }

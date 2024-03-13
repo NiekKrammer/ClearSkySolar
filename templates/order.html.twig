@@ -27,14 +27,14 @@
             <!-- Hidden field to submit JSON data -->
             <input type="hidden" id="cartData" name="cartData" value="">
 
-            <h4 class="mb-5 text-center">Vul hier je gegevens in</h4>
+            <h4 class="text-center">Vul hier je gegevens in</h4>
+            <p class="text-center mb-5">Het invullen van alle velden zijn verplicht</p>
             {{ form_row(form.name) }}
             {{ form_row(form.address) }}
             {{ form_row(form.email) }}
-            <p></p>
+            {{ form_row(form.phoneNr) }}
             {{ form_row(form.date) }}
             {{ form_row(form.time) }}
-            {{ form_row(form.phoneNr) }}
             <button type="submit" id="place-order-button" class="placeOrderBtn">Plaats bestelling</button>
             {{ form_end(form) }}
         </form>

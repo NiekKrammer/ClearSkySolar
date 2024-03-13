@@ -2,13 +2,7 @@
 
 {% block body %}
 
-    <!-- flash messages -->
-    {% for message in app.flashes('order_success') %}
-        <div class="alert alert-success mx-auto my-5 p-4 text-center" style="width: fit-content;">
-            {{ message }}
-        </div>
-    {% endfor %}
-
+    <!-- flash message -->
     {% for message in app.flashes('registration_success') %}
         <div class="alert alert-success my-4 mx-auto text-center" style="width: fit-content;">
             {{ message }}
@@ -32,8 +26,8 @@
     <!-- producten -->
     <div class="container products">
         <div class="row">
-            <h2 class="text-center">Onze producten</h2>
-            <p class="text-center px-5 mb-4">Een afspraak kan op de bestelpagina
+            <h2 class="text-center"><i class="fa-solid fa-solar-panel"></i> Onze producten</h2>
+            <p class="text-center px-5 mb-4">Bekijk hier onze paketten! Een afspraak kan op de bestelpagina
                 worden gemaakt.</p>
 
             {% for product in products %}
@@ -43,8 +37,9 @@
                     <div class="d-flex flex-column mt-3">
                         <h3>{{ product.name }}</h3>
                         <p>{{ product.description }}</p>
+                        <p class="fw-semibold">{{ product.quantity }}</p>
                         <div class="mt-auto card_div">
-                            <p class="fw-medium price">€ {{ product.price }}</p>
+                            <p class="fw-semibold price">€ {{ product.price }}</p>
                             <a href="{{ path('product_view', {'name': product.name}) }}" class="mt-auto">Bekijken</a>
                         </div>
                     </div>
@@ -58,12 +53,12 @@
     <div class="container over_ons text-center col-md-5 col-8">
         <h2 class="mt-5" data-aos="fade-right" data-aos-duration="1200">Over Ons</h2>
         <hr class="mx-auto">
-        <h3 data-aos="fade-right" data-aos-duration="1200" class="mb-3">Wie zijn wij?</h3>
-        <p> Welkom bij ClearSkySolar, uw partner in duurzame energieoplossingen in Nederland. Wij zijn
+        <h3 data-aos="fade-right" data-aos-duration="1200" class="mb-3"><i class="fa-solid fa-layer-group"></i> Wie zijn wij</h3>
+        <p>Welkom bij ClearSkySolar! Uw partner in duurzame energieoplossingen in Nederland. Wij zijn
             gepassioneerd
-            door het leveren van hoogwaardige zonnepaneeloplossingen die niet alleen de energie-efficiëntie van uw huis
+            in het leveren van hoogwaardige zonnepaneeloplossingen, die niet alleen de energie-efficiëntie van uw huis
             of bedrijf verbeteren, maar ook bijdragen aan een schonere en groenere toekomst.</p>
-        <h3 data-aos="fade-right" data-aos-duration="1200" class="mb-3">Onze Missie</h3>
+        <h3 data-aos="fade-right" data-aos-duration="1200" class="mb-3"><i class="fa-solid fa-rocket"></i> Onze Missie</h3>
 
         <p>Bij ClearSkySolar hebben we ons tot doel gesteld om de transitie naar hernieuwbare energie te
             versnellen en
@@ -74,7 +69,7 @@
 
     <!-- contact -->
     <div class="container contact text-center col-md-5 col-8">
-        <h4 data-aos="fade-right" data-aos-duration="1200" class="mb-3">Neem Contact Met Ons Op</h4>
+        <h4 data-aos="fade-right" data-aos-duration="1200" class="mb-3"><i class="fa-solid fa-paper-plane"></i> Neem Contact Met Ons Op</h4>
         <p class="mb-5">Of u nu geïnteresseerd bent in het installeren van zonnepanelen op uw woning of bedrijf, of
             gewoon meer wilt weten over de voordelen van zonne-energie, het team van ClearSkySolar staat voor u klaar.
             Neem vandaag nog contact met ons op voor een vrijblijvend adviesgesprek en ontdek hoe u kunt profiteren van

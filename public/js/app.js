@@ -61,7 +61,7 @@ function getLocalStorage() {
 }
 
 if (!shoppingCart || shoppingCart.length === 0) {
-    empty_cart.textContent = 'Je winkelwagen is leeg.';
+    empty_cart.textContent = 'Je winkelwagen is leeg';
 }
 
 function updateSidebar() {

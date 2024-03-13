@@ -20,40 +20,38 @@ class OrderType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Naam *',
-                "required"=>true,
+                'label' => 'Naam',
+                "required" => true,
             ])
             ->add('address', TextType::class, [
-                'label' => 'Adres *',
-                "required"=>true,
+                'label' => 'Adres',
+                "required" => true,
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Email *',
-                "required"=>true,
+                'label' => 'Email',
+                "required" => true,
+            ])
+            ->add('phoneNr', TelType::class, [
+                'label' => 'Telefoonnummer',
+                'required' => true,
+                'attr' => [
+                    'class' => 'w-50',
+                ]
             ])
             ->add('date', DateType::class, [
-                'label' => 'Kies een beschikbare afspraakdatum *',
+                'label' => 'Kies een beschikbare afspraakdatum',
                 "required" => true,
                 'widget' => 'single_text',
                 'attr' => [
                     'class' => 'datepicker w-50',
                     'readonly' => 'readonly'
-
                 ]
             ])
             ->add('time', TimeType::class, [
-                'label' => 'Tijd *',
-                "required"=>true,
+                'label' => 'Tijdstip',
+                "required" => true,
                 'data' => new \DateTime('now'),
-            ])
-            ->add('phoneNr', TelType::class, [
-                'label' => 'Telefoonnummer',
-                'required' => false,
-                'attr' => [
-                    'class' => 'w-50',
-                ]
             ]);
-
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -1,0 +1,18 @@
+.order_history h1 {
+    color: #1f1f1f;
+}
+
+.order_history .welcome_user_text {
+    font-size: 18px;
+    font-weight: 450;
+    color: #1f1f1f;
+}
+
+.order_history_table {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+
+}
+
+table {
+    overflow-x: scroll;
+}
