@@ -9,13 +9,14 @@
     color: #1c1c1c;
 }
 
-.btn-close {
-    transform: translateY(-6px);
+.decrease-item, .increase-item {
+    width: 30px;
+    height: 30px;
+    border: none;
 }
 
-.decrease-item, .increase-item {
-    width: 32px;
-    height: 32px;
+.decrease-item:hover , .increase-item:hover {
+    opacity: 0.9;
 }
 
 .delete_icon {
@@ -32,12 +33,7 @@
     background-color: #fefbe7;
     text-decoration: none;
     padding: 10px 26px;
-    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
     border: none;
-}
-
-.order_btn:hover {
-    background-color: #f3ecd2;
 }
 
 #total-price {

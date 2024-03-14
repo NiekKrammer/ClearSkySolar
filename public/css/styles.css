@@ -29,6 +29,10 @@ body {
 
 }
 
+a:hover, button:hover, .cart-icon:hover {
+    opacity: 0.9;
+}
+
 /* -- navbar -- */
 nav {
     width: 100dvw;
@@ -116,14 +120,13 @@ nav .username {
     box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
     border: 1px solid rgba(0, 0, 0, 0.10);
     padding: 28px;
-    border-radius: 15px;
+    border-radius: 12px;
 }
 
 .products .product_card:hover {
     box-shadow: rgba(0, 0, 0, 0.39) 2px 2px 3px;
     transition: 0.2s;
 }
-
 
 .products .product_card .product_img {
     object-fit: cover;
@@ -142,17 +145,13 @@ nav .username {
 
 .products .product_card a {
     padding: 6px 18px;
-    border: 1px solid #3b82f6;
+    background-color: #f3f314;
+    color: #000;
     width: fit-content;
+    border-radius: 6px;
 }
 
-.products .product_card a:hover {
-    border: 1px solid #fff;
-    background-color: #3b82f6;
-    color: #fff;
-}
-
-/* -- product info page -- */
+/* -- product info page (vervolgpagina producten) -- */
 .product_page {
     margin-top: 50px;
 }
@@ -166,6 +165,16 @@ nav .username {
     border-radius: 15px;
 }
 
+.product_page i {
+    margin-right: 3px;
+}
+
+.product_page img {
+    max-height: 400px;
+    object-fit: cover;
+    margin-right: 35px;
+}
+
 .product_page .card_div {
     transform: translateY(-2px);
 }
@@ -175,11 +184,11 @@ nav .username {
     margin-bottom: 8px;
 }
 
-.product_page img {
-    width: 200px;
-    max-height: 400px;
-    object-fit: cover;
-    margin-right: 35px;
+.product_page button {
+    background-color: #f3f314;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
 }
 
 
@@ -250,10 +259,6 @@ nav .username {
     box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
     border-radius: 3px;
     border: none;
-}
-
-.contact a:hover {
-    background-color: #3776de;
 }
 
 /* -- contact page - */
