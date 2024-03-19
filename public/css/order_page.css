@@ -3,6 +3,14 @@
     color: #1c1c1c;
 }
 
+.order_page hr {
+    width: 450px;
+    margin: 0 auto;
+    height: 2px;
+    border: none;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
 /* -- added products div -- */
 .order {
     display: flex;
@@ -16,20 +24,9 @@
     width: fit-content;
 }
 
+/* -- order form -- */
 .order_form {
     max-width: 600px;
-    padding: 40px 30px;
-    background-color: #fff;
-    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
-    border: 1px solid rgba(0, 0, 0, 0.10);
-    border-radius: 15px;
-    color: #1c1c1c;
-}
-
-@media only screen and (max-width: 800px) {
-    .order_form {
-        width: 100%;
-    }
 }
 
 .order_form span {
@@ -55,8 +52,14 @@
     padding: 10px 26px;
     box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
     border: none;
+    border-radius: 6px;
 }
 
-.placeOrderBtn:hover {
-    background-color: #3776de;
+@media only screen and (max-width: 800px) {
+    .order_form {
+        width: 100%;
+    }
+    .order_page hr {
+        width: 90%;
+    }
 }

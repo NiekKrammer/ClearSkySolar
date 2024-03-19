@@ -29,11 +29,11 @@ class ProductsCrudController extends AbstractCrudController
             ->setBasePath('product_imgs')
             ->setUploadDir('public/product_imgs')
             ->setUploadedFileNamePattern('[randomhash].[extension]');
-        yield TextareaField::new('info2', 'Informatie vervolgpagina')->renderAsHtml();
-        yield TextField::new('description')->setLabel('beschrijving')
-            ->setRequired(false);
         yield Field::new('price')->setLabel('prijs');
         yield TextField::new('quantity')->setLabel('hoeveelheid');
+        yield TextField::new('description')->setLabel('beschrijving')
+            ->setRequired(false);
+        yield TextareaField::new('info2', 'preview')->renderAsHtml();
         yield TextEditorField::new('info')->setLabel('informatie vervolgpagina');
     }
 
