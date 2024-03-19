@@ -18,6 +18,8 @@ class Products
 
     #[ORM\Column(length: 100)]
     public ?string $name = null;
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $info2 = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
     public ?string $price = null;
@@ -122,6 +124,18 @@ class Products
     public function setQuantity(?string $quantity): static
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function getInfo2(): ?string
+    {
+        return $this->info2;
+    }
+
+    public function setInfo2(?string $info2): static
+    {
+        $this->info2 = $info2;
 
         return $this;
     }

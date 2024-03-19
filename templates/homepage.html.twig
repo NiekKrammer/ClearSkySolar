@@ -27,9 +27,9 @@
     <div class="container products">
         <div class="row">
             <h2 class="text-center"><i class="fa-solid fa-solar-panel"></i> Onze producten</h2>
-            <p class="text-center px-5 mb-4">Bekijk hier onze paketten! Een afspraak kan op de bestelpagina
+            <p class="text-center px-4">Bekijk hier onze paketten! Een afspraak kan op de bestelpagina
                 worden gemaakt.</p>
-
+            <hr class="mt-0 mb-5">
             {% for product in products %}
                 <div class="d-flex my-3 product_card col-12 mx-auto" data-aos="fade-up" data-aos-duration="1000">
                     <img src="{{ asset('product_imgs/' ~ product.image_file) }}" class="product_img"
@@ -43,7 +43,9 @@
                             <a href="{{ path('product_view', {'name': product.name}) }}" class="mt-auto">Bekijken</a>
                         </div>
                     </div>
+
                 </div>
+                <hr>
             {% endfor %}
 
         </div>

@@ -8,6 +8,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class ProductsCrudController extends AbstractCrudController
@@ -20,18 +22,19 @@ class ProductsCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield IdField::new('id')->setLabel('id')->setFormTypeOption('disabled', true);
-        yield Field::new('name')->setLabel('naam');
-        yield Field::new('price')->setLabel('prijs');
         yield BooleanField::new('available')->setLabel('beschikbaar')->setFormTypeOption('data', true);
+        yield Field::new('name')->setLabel('naam');
         yield ImageField::new('image_file')->setLabel('foto')
             ->setRequired(false)
             ->setBasePath('product_imgs')
             ->setUploadDir('public/product_imgs')
             ->setUploadedFileNamePattern('[randomhash].[extension]');
+        yield TextareaField::new('info2', 'Informatie vervolgpagina')->renderAsHtml();
         yield TextField::new('description')->setLabel('beschrijving')
             ->setRequired(false);
+        yield Field::new('price')->setLabel('prijs');
         yield TextField::new('quantity')->setLabel('hoeveelheid');
-        yield Field::new('info')->setLabel('informatie');
+        yield TextEditorField::new('info')->setLabel('informatie vervolgpagina');
     }
 
 }
