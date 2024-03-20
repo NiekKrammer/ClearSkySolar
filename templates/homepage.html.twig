@@ -9,6 +9,12 @@
         </div>
     {% endfor %}
 
+    {% for message in app.flashes('order_success') %}
+        <div class="alert alert-success mx-auto my-5 p-4 text-center" style="width: fit-content;">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     <div class="herosection">
         <div class="row d-flex align-items-center justify-content-center text-center">
             <div class="col-xl-6 my-5">

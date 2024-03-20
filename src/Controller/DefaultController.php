@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Order;
 use App\Entity\Products;
 use App\Form\ContactFormType;
 use App\Repository\OrderItemsRepository;
@@ -63,6 +64,17 @@ class DefaultController extends AbstractController
 
         return $this->render('statistieken.html.twig', [
             'userOrders' => $userOrders,
+        ]);
+    }
+
+    #[Route('/bestellingen', name: 'app_order_history')]
+    public function viewOrders(): Response
+    {
+        $user = $this->getUser();
+        $orders = $this->entityManager->getRepository(Order::class)->findBy(['username' => $user]);
+
+        return $this->render('order_history.html.twig', [
+            'orders' => $orders,
         ]);
     }
 

@@ -21,6 +21,12 @@
             </div>
         {% endfor %}
 
+        {% for message in app.flashes('error_date') %}
+            <div class="alert alert-danger" style="max-width: 400px; margin: 0 auto; text-align: center;">
+                {{ message }}
+            </div>
+        {% endfor %}
+
         <h4 class="text-center">Vul hier je gegevens in</h4>
         <p class="text-center">Het invullen van alle velden zijn verplicht</p>
         <hr>
@@ -28,8 +34,11 @@
             {{ form_start(form) }}
             <!-- Hidden field to submit JSON data -->
             <input type="hidden" id="cartData" name="cartData" value="">
-            {{ form_row(form.name) }}
-            {{ form_row(form.address) }}
+            {{ form_row(form.voornaam) }}
+            {{ form_row(form.achternaam) }}
+            {{ form_row(form.postcode) }}
+            {{ form_row(form.straatnaam) }}
+            {{ form_row(form.huisnummer) }}
             {{ form_row(form.email) }}
             {{ form_row(form.phoneNr) }}
             {{ form_row(form.date) }}
@@ -64,6 +73,18 @@
                     $('#{{ form.date.vars.id }}').val(dateText);
                 }
             });
+
+            // Voeg een event listener toe aan het formulier om te controleren op lege datumvelden
+            $('form').submit(function (event) {
+                // Controleer of de datum leeg is
+                if ($('#{{ form.date.vars.id }}').val() === '') {
+                    // Toon een foutmelding
+                    $('#{{ form.date.vars.id }}').addClass('is-invalid');
+                    // Voorkom dat het formulier wordt ingediend
+                    event.preventDefault();
+                }
+            });
+
         });
     </script>
 

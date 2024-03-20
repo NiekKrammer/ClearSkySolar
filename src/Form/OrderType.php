@@ -19,12 +19,24 @@ class OrderType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
-                'label' => 'Naam',
+            ->add('voornaam', TextType::class, [
+                'label' => 'Voornaam',
                 "required" => true,
             ])
-            ->add('address', TextType::class, [
-                'label' => 'Adres',
+            ->add('achternaam', TextType::class, [
+                'label' => 'Achternaam',
+                "required" => true,
+            ])
+            ->add('postcode', TextType::class, [
+                'label' => 'Postcode',
+                "required" => true,
+            ])
+            ->add('straatnaam', TextType::class, [
+                'label' => 'Straatnaam',
+                "required" => true,
+            ])
+            ->add('huisnummer', TextType::class, [
+                'label' => 'Huisnummer',
                 "required" => true,
             ])
             ->add('email', EmailType::class, [

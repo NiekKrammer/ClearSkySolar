@@ -18,10 +18,11 @@ class Order
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $name = null;
+    private ?string $achternaam = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $address = null;
+    #[ORM\Column(length: 100)]
+    private ?string $voornaam = null;
+
 
     #[ORM\Column(length: 150)]
     private ?string $email = null;
@@ -45,6 +46,15 @@ class Order
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $ordered_at = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $straatnaam = null;
+
+    #[ORM\Column(length: 30)]
+    private ?string $huisnummer = null;
+
+    #[ORM\Column(length: 50)]
+    private ?string $postcode = null;
+
     public function __construct()
     {
         $this->orderItems = new ArrayCollection();
@@ -53,30 +63,6 @@ class Order
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): static
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
-
-    public function setAddress(string $address): static
-    {
-        $this->address = $address;
-
-        return $this;
     }
 
     public function getEmail(): ?string
@@ -176,6 +162,66 @@ class Order
     public function setOrderedAt(\DateTimeInterface $ordered_at): static
     {
         $this->ordered_at = $ordered_at;
+
+        return $this;
+    }
+
+    public function getAchternaam(): ?string
+    {
+        return $this->achternaam;
+    }
+
+    public function setAchternaam(string $achternaam): static
+    {
+        $this->achternaam = $achternaam;
+
+        return $this;
+    }
+
+    public function getVoornaam(): ?string
+    {
+        return $this->voornaam;
+    }
+
+    public function setVoornaam(string $voornaam): static
+    {
+        $this->voornaam = $voornaam;
+
+        return $this;
+    }
+
+    public function getStraatnaam(): ?string
+    {
+        return $this->straatnaam;
+    }
+
+    public function setStraatnaam(string $straatnaam): static
+    {
+        $this->straatnaam = $straatnaam;
+
+        return $this;
+    }
+
+    public function getHuisnummer(): ?string
+    {
+        return $this->huisnummer;
+    }
+
+    public function setHuisnummer(string $huisnummer): static
+    {
+        $this->huisnummer = $huisnummer;
+
+        return $this;
+    }
+
+    public function getPostcode(): ?string
+    {
+        return $this->postcode;
+    }
+
+    public function setPostcode(string $postcode): static
+    {
+        $this->postcode = $postcode;
 
         return $this;
     }

@@ -14,17 +14,13 @@
             const ctx = document.getElementById('myChart');
 
             const panelData = {
-                {% for order in userOrders %}
-                {% for item in order.getOrderItems() %}
-                "{{ item.getItem() }}": [
+                "Zonnepanelen": [
                     {% set data = [] %}
-                    {% for i in range(1, 13) %}
+                    {% for monthIndex in range(1, 13) %}
                     {% set kWh = random(0, 500) %}
                     {{ kWh }},
                     {% endfor %}
-                ],
-                {% endfor %}
-                {% endfor %}
+                ]
             };
 
             const panelNames = Object.keys(panelData);

@@ -64,7 +64,6 @@ class OrderController extends AbstractController
         }
 
         $userEmail = $form->get('email')->getData();
-        $userAddress = $form->get('address')->getData();
 
         $orderItemsDataJSON = $request->request->get('orderItemsData');
         $orderItemsData = json_decode($orderItemsDataJSON, true);
@@ -118,26 +117,36 @@ class OrderController extends AbstractController
         $this->entityManager->persist($order);
         $this->entityManager->flush();
 
+
+//        $phpmailer = new PHPMailer();
+//        $phpmailer->isSMTP();
+//        $phpmailer->Host = 'live.smtp.mailtrap.io';
+//        $phpmailer->SMTPAuth = true;
+//        $phpmailer->Port = 587;
+//        $phpmailer->Username = 'api';
+//        $phpmailer->Password = '02f2f5bffcc043a266cd7481fdf9acc2';
+
+        // test email smtp
         $phpmailer = new PHPMailer();
         $phpmailer->isSMTP();
-        $phpmailer->Host = 'live.smtp.mailtrap.io';
+        $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
         $phpmailer->SMTPAuth = true;
-        $phpmailer->Username = 'api';
-        $phpmailer->Password = '67a481dd00090e37922f82e2d6f458d4';
-        $phpmailer->Port = 587;
+        $phpmailer->Port = 2525;
+        $phpmailer->Username = 'c1f81d14309b54';
+        $phpmailer->Password = '602f783afea780';
 
         $phpmailer->setFrom('clearskysolar@niekkrammer.nl', 'ClearSkySolar');
         $phpmailer->addAddress($userEmail);
         $phpmailer->addAddress($loggedInUserEmail);
-        $name = $form->get('name')->getData();
+        $voornaam = $form->get('voornaam')->getData();
+        $achternaam = $form->get('achternaam')->getData();
 
         $phpmailer->isHTML(true);
         $phpmailer->Subject = 'Bestelling ClearSkySolar';
 
-        $orderDetails = '<p style="font-size: 15px; color: #0a0a0a;">Beste ' . $name . ', hier zijn de details van je bestelling:</p>';
+        $orderDetails = '<p style="font-size: 15px; color: #0a0a0a;">Beste ' . $voornaam . ' ' . $achternaam . ', hier zijn de details van je bestelling:</p>';
         $orderDetails .= '<p style="color: #0a0a0a;">We komen langs op: ' . $order->getDate()->format('d-m-Y') . $order->getTime()->format(' H:i') . '</p>';
-        $orderDetails .= '<p><a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Bestelling%20bij%20ClearSkySolar&dates=' . $order->getDate()->format('Ymd') . 'T' . $order->getTime()->format('His') . 'Z/' . $order->getDate()->format('Ymd') . 'T' . $order->getTime()->format('His') . 'Z">Toevoegen aan Agenda</a></p>';
-
+        $orderDetails .= '<a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Bestelling%20bij%20ClearSkySolar&dates=' . $order->getDate()->format('Ymd') . 'T' . $order->getTime()->format('His') . 'Z/' . $order->getDate()->format('Ymd') . 'T' . $order->getTime()->format('His') . 'Z">Toevoegen aan Agenda</a>';
         $orderDetails .= '<h2 style="font-size: 18px; color: #0a0a0a;">Bestelde items:</h2>
                 <ul>';
         foreach ($orderItems as $orderItem) {
@@ -147,22 +156,34 @@ class OrderController extends AbstractController
             $orderDetails .= '<li style="color: black;">' . $itemQuantity . 'x ' . $itemName . ' </li>';
         }
         $orderDetails .= '</ul>';
-
         $orderDetails .= '<p style="color: #0a0a0a;">Totale prijs: &euro;' . number_format($totalPrice, 2, '.', ',') . '</p>';
 
-        $phpmailer->Body = '<div style="background-color: #79BEE2FF; padding: 20px;">
+        $fontImport = '@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");';
+
+        $phpmailer->Body = '<style>' . $fontImport . ' * { box-sizing: border-box; font-family: "Poppins", sans-serif; text-decoration: none !important; } </style>' .
+            '<div style="background-image: linear-gradient(
+            180deg,
+            hsl(201, 96%, 70%) 0%,
+            hsl(204, 95%, 75%) 2%,
+            hsl(206, 92%, 80%) 4%,
+            hsl(207, 89%, 83%) 6%,
+            hsl(208, 86%, 85%) 8%,
+            hsl(209, 80%, 87%) 10%,
+            hsl(214, 59%, 88%) 12%,
+            hsl(227, 37%, 93%) 15%,
+            hsl(210, 25%, 95%) 20%
+                ); padding: 20px;">
          <h1 style="color: #0a0a0a; margin-top: 0; margin-bottom: 18px;">ClearSkySolar</h1>
             <h2 style="font-size: 22px; color: #0a0a0a;">Bevestiging van uw bestelling</h2>
             ' . $orderDetails . '
-            <a href="http://localhost/clearskysolar/public/" style="color: black; padding: 10px 26px; 
-            background-color: #EFEFEF; text-decoration: none; border: none; 
+            <a href="http://localhost/clearskysolar/public/" style="background-color: #3b82f6; color: white; padding: 8px 24px; border-radius: 6px; text-decoration: none; border: none; 
             font-weight: bold;">Ga terug naar de website</a>
           </div>';
 
         try {
             $phpmailer->send();
             $this->addFlash('order_success', 'Je bestelling is succesvol geplaatst! Je ontvangt een e-mail ter bevestiging.');
-            return $this->redirectToRoute('app_order_history', ['clearStorage' => 1]);
+            return $this->redirectToRoute('app_default', ['clearStorage' => 1]);
 
         } catch (Exception $e) {
             echo "Bericht kon niet worden verzonden. Mailerfout: {$phpmailer->ErrorInfo}";

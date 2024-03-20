@@ -7,11 +7,11 @@
         <div class="my-3 col-12 mx-auto product_card" data-aos="fade-up" data-aos-duration="1000">
 
             <div class="d-block d-md-flex">
-            <img src="{{ asset('product_imgs/' ~ product.image_file) }}"
-                 alt="{{ product.name }}" class="product_img_vervolgpagina">
+                <img src="{{ asset('product_imgs/' ~ product.image_file) }}"
+                     alt="{{ product.name }}" class="product_img_vervolgpagina">
                 <div class="d-flex flex-column mt-4 mt-md-5">
-                <h3 class="">{{ product.name }}</h3>
-                <p>{{ product.info2 | raw }}</p>
+                    <h3 class="">{{ product.name }}</h3>
+                    <p>{{ product.info2 | raw }}</p>
                 </div>
             </div>
 
@@ -26,13 +26,25 @@
                     </button>
                 </div>
             </div>
-
-                <img src="../assets/images/page/payment-methods.png" class="payments_methods">
+            <img src="../assets/images/page/payment-methods.png" class="payments_methods">
         </div>
 
-
-
-
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const button = document.querySelector('.add_btn');
+            const icon = button.querySelector('i');
+            const btnText = document.querySelector('.btn-text');
 
+            button.addEventListener('click', function () {
+                icon.classList.replace('fa-cart-shopping', 'fa-check-circle');
+
+                setTimeout(() => {
+                    icon.classList.replace('fa-check-circle', 'fa-cart-shopping');
+                    btnText.textContent = 'Plaats in winkelwagen';
+                }, 500);
+            });
+        });
+
+    </script>
 {% endblock %}

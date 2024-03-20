@@ -148,34 +148,6 @@ nav .username {
 }
 
 
-/* -- product info page (vervolgpagina producten) -- */
-.product_page {
-    margin-top: 60px;
-}
-
-.product_page .product_card {
-    max-width: 850px;
-}
-
-.product_page .product_img_vervolgpagina {
-    max-height: 400px;
-    margin-right: 30px;
-    object-fit: cover;
-}
-
-.product_page i {
-    margin-right: 3px;
-}
-
-.product_page .price {
-    font-size: 20px;
-    margin-bottom: 8px;
-}
-
-.product_page .payments_methods {
-    width: 400px;
-}
-
 @media (max-width: 800px) {
     .product_page {
         margin-top: 30px;
@@ -214,7 +186,7 @@ nav .username {
     }
 }
 
-/* -- over ons-- */
+/* -- over ons section -- */
 .over_ons hr {
     width: 275px;
     margin-bottom: 70px;
@@ -228,7 +200,7 @@ nav .username {
     word-spacing: 2px;
 }
 
-/* -- homepage contact section - */
+/* -- homepage contact section -- */
 .contact p {
     word-spacing: 2px;
 }
@@ -243,7 +215,37 @@ nav .username {
     border: none;
 }
 
-/* -- contact page - */
+/* --- EINDE HOMEPAGE --- */
+
+/* -- /product -- */
+.product_page {
+    margin-top: 60px;
+}
+
+.product_page .product_card {
+    max-width: 850px;
+}
+
+.product_page .product_img_vervolgpagina {
+    max-height: 375px;
+    margin-right: 30px;
+    object-fit: cover;
+}
+
+.product_page i {
+    margin-right: 3px;
+}
+
+.product_page .price {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.product_page .payments_methods {
+    width: 400px;
+}
+
+/* -- /contact -- */
 .contact_page form {
     max-width: 550px;
     margin: 30px auto;
@@ -257,11 +259,11 @@ nav .username {
 }
 
 .contact_page button {
-    color: white;
     background-color: #3b82f6;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
     text-decoration: none;
     padding: 6px 24px;
-    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
     border-radius: 0;
     border: none;
 }
