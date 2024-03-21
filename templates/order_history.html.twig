@@ -14,10 +14,11 @@
                     <th>Bestelnummer</th>
                     <th>Voornaam</th>
                     <th>Achternaam</th>
-                    <th>Postcode</th>
-                    <th>Straatnaam</th>
-                    <th>Huisnummer</th>
                     <th>E-mail</th>
+                    <th>Postcode</th>
+                    <th>Huisnummer</th>
+                    <th>Stad</th>
+                    <th>Straatnaam</th>
                     <th>Telefoonnummer</th>
                     <th>Gekozen datum</th>
                     <th>Gekozen tijd</th>
@@ -32,10 +33,11 @@
                         <td>{{ order.id }}</td>
                         <td>{{ order.voornaam }}</td>
                         <td>{{ order.achternaam }}</td>
-                        <td>{{ order.postcode }}</td>
-                        <td>{{ order.straatnaam }}</td>
-                        <td>{{ order.huisnummer }}</td>
                         <td>{{ order.email }}</td>
+                        <td>{{ order.postcode }}</td>
+                        <td>{{ order.huisnummer }}</td>
+                        <td>{{ order.city }}</td>
+                        <td>{{ order.straatnaam }}</td>
                         <td>{{ order.phoneNr }}</td>
                         <td>{{ order.date ? order.date|date('Y-m-d') : '' }}</td>
                         <td>{{ order.time ? order.time|date('H:i:s') : '' }}</td>

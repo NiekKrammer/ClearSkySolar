@@ -30,14 +30,30 @@ class OrderType extends AbstractType
             ->add('postcode', TextType::class, [
                 'label' => 'Postcode',
                 "required" => true,
-            ])
-            ->add('straatnaam', TextType::class, [
-                'label' => 'Straatnaam',
-                "required" => true,
+                'attr' => [
+                    'class' => 'w-25 postcode',
+                ]
             ])
             ->add('huisnummer', TextType::class, [
                 'label' => 'Huisnummer',
                 "required" => true,
+                'attr' => [
+                    'class' => 'w-25 huisnummer',
+                ]
+            ])
+            ->add('city', TextType::class, [
+                'label' => 'Stad',
+                "required" => true,
+                'attr' => [
+                    'class' => 'city',
+                ]
+            ])
+            ->add('straatnaam', TextType::class, [
+                'label' => 'Straatnaam',
+                "required" => true,
+                'attr' => [
+                    'class' => 'straatnaam',
+                ]
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Email',

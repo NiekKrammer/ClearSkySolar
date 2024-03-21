@@ -6,7 +6,7 @@
 
         <div class="dropdown">
 
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+            <button class="user_icon_navigation" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                 <i class="fa-solid fa-user"></i></button>
             <ul class="dropdown-menu">
@@ -21,7 +21,6 @@
 
                 {% if app.user %}
                     {% if app.request.attributes.get('_route') != 'app_statistieken' %}
-
                         <a href="{{ path('app_statistieken') }}" class="dropdown-item">mijn panelen</a>
                     {% endif %}
 
@@ -48,13 +47,13 @@
 </nav>
 
 <!-- Shopping cart -->
-<div class="offcanvas offcanvas-end shopping_cart" tabindex="-1" id="offcanvasRight"
+<div class="offcanvas offcanvas-end shopping_cart_sidebar" tabindex="-1" id="offcanvasRight"
      aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
-        <h4 class="offcanvas-title" id="offcanvasRightLabel">Winkelwagen</h4>
+        <h2 class="offcanvas-title" id="offcanvasRightLabel">Winkelwagen</h2>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body cart d-flex flex-column justify-content-between">
+    <div class="cart offcanvas-body d-flex flex-column justify-content-between">
 
         <!-- added products -->
         <div id="cart-content">
@@ -63,9 +62,9 @@
         <div>
             <p id="total-price"></p>
             {% if app.request.get('_route') == "app_order" %}
-                <a class="order_btn" href="{{ path('app_order') }}">Wijzig Bestelling</a>
+                <a href="{{ path('app_order') }}">Wijzig Bestelling</a>
             {% else %}
-                <a class="order_btn" href="{{ path('app_order') }}">Verder naar bestellen <i
+                <a href="{{ path('app_order') }}">Verder naar bestellen <i
                             class="fa-solid fa-arrow-right mx-1"></i></a>
             {% endif %}
         </div>

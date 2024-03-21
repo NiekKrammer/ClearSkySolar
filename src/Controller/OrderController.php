@@ -58,10 +58,14 @@ class OrderController extends AbstractController
 
         if ($request->isMethod('POST')) {
             if (!$this->getUser()) {
-                $this->addFlash('error', 'Je moet ingelogd zijn om een bestelling te plaatsen.');
+                $this->addFlash('error_login', 'Je moet ingelogd zijn om een bestelling te plaatsen.');
                 return $this->redirectToRoute('app_order');
             }
         }
+
+        $postcode = $form->get('postcode')->getData();
+        $huisnummer = $form->get('huisnummer')->getData();
+
 
         $userEmail = $form->get('email')->getData();
 

@@ -1,91 +1,123 @@
-{% extends 'base.html.twig' %}
+    {% extends 'base.html.twig' %}
 
-{% block body %}
+    {% block body %}
 
-    <div class="container my-4 order_page">
-        <h1 class="text-center mb-2">Bestelling</h1>
-        <p class="text-center fw-light mb-4 px-2">Het wijzigen van je bestelling kan in de winkelwagen</p>
-        <div id="order-list"></div>
-        <p id="empty_cart" style="text-align: center; margin: 10px 0; color: #0a0a0a"></p>
-        <p id="total-price-order" class="text-center my-5 totalPrice"></p>
+        <div class="container my-4 order_page">
+            <h1 class="text-center mb-2">Bestelling</h1>
+            <p class="text-center fw-light mb-4 px-2">Het wijzigen van je bestelling kan in de winkelwagen</p>
+            <div id="order-list"></div>
+            <p id="empty_cart" style="text-align: center; margin: 10px 0; color: #0a0a0a"></p>
+            <p id="total-price-order" class="text-center my-5 totalPrice"></p>
 
-        {% for message in app.flashes('order_empty') %}
-            <div class="alert alert-danger" style="max-width: 400px; margin: 0 auto; text-align: center;">
-                {{ message }}
-            </div>
-        {% endfor %}
+            {% for message in app.flashes('order_empty') %}
+                <div class="alert alert-danger" style="max-width: 400px; margin: 25px auto; text-align: center;">
+                    {{ message }}
+                </div>
+            {% endfor %}
 
-        {% for message in app.flashes('error') %}
-            <div class="alert alert-danger" style="max-width: 400px; margin: 0 auto; text-align: center;">
-                {{ message }}
-            </div>
-        {% endfor %}
+            {% for message in app.flashes('error_login') %}
+                <div class="alert alert-danger" style="max-width: 400px; margin: 25px auto; text-align: center;">
+                    {{ message }}
+                </div>
+            {% endfor %}
 
-        {% for message in app.flashes('error_date') %}
-            <div class="alert alert-danger" style="max-width: 400px; margin: 0 auto; text-align: center;">
-                {{ message }}
-            </div>
-        {% endfor %}
+            <h4 class="text-center">Vul hier je gegevens in</h4>
+            <p class="text-center">Het invullen van alle velden zijn verplicht</p>
+            <hr>
+            <form method="post" action="{{ path('app_order') }}" class="mx-auto my-5 order_form">
+                {{ form_start(form) }}
+                <!-- Hidden field to submit JSON data -->
+                <input type="hidden" id="cartData" name="cartData" value="">
+                {{ form_row(form.voornaam) }}
+                {{ form_row(form.achternaam) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.postcode) }}
+                {{ form_row(form.huisnummer) }}
+                {{ form_row(form.city) }}
+                {{ form_row(form.straatnaam) }}
+                {{ form_row(form.phoneNr) }}
+                {{ form_row(form.date) }}
+                {{ form_row(form.time) }}
+                <button type="submit" id="place-order-button" class="placeOrderBtn">Plaats bestelling</button>
+                {{ form_end(form) }}
+            </form>
+        </div>
 
-        <h4 class="text-center">Vul hier je gegevens in</h4>
-        <p class="text-center">Het invullen van alle velden zijn verplicht</p>
-        <hr>
-        <form method="post" action="{{ path('app_order') }}" class="mx-auto my-5 order_form">
-            {{ form_start(form) }}
-            <!-- Hidden field to submit JSON data -->
-            <input type="hidden" id="cartData" name="cartData" value="">
-            {{ form_row(form.voornaam) }}
-            {{ form_row(form.achternaam) }}
-            {{ form_row(form.postcode) }}
-            {{ form_row(form.straatnaam) }}
-            {{ form_row(form.huisnummer) }}
-            {{ form_row(form.email) }}
-            {{ form_row(form.phoneNr) }}
-            {{ form_row(form.date) }}
-            {{ form_row(form.time) }}
-            <button type="submit" id="place-order-button" class="placeOrderBtn">Plaats bestelling</button>
-            {{ form_end(form) }}
-        </form>
-    </div>
+        <script>
+            <!-- afspraakdatums disablen -->
+            $(function () {
+                const disabledDates = [
+                    {% for order in orders %}
+                    '{{ order.date|date('Y-m-d') }}',
+                    {% endfor %}
+                ];
 
-    <script>
-        $(function () {
-            <!-- Haal alle afspraakdatums uit de database -->
-            const disabledDates = [
-                {% for order in orders %}
-                '{{ order.date|date('Y-m-d') }}',
-                {% endfor %}
-            ];
+                $('.datepicker').datepicker({
+                    dateFormat: 'yy-mm-dd',
+                    beforeShowDay: function (date) {
+                        const day = date.getDay();
+                        const isWeekend = (day === 6 || day === 0);
 
-            $('.datepicker').datepicker({
-                dateFormat: 'yy-mm-dd',
-                beforeShowDay: function (date) {
-                    const day = date.getDay();
-                    const isWeekend = (day === 6 || day === 0);
+                        const string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+                        const isDisabled = disabledDates.indexOf(string) !== -1;
 
-                    const string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-                    const isDisabled = disabledDates.indexOf(string) !== -1;
+                        <!-- Weekenden en onbeschikbare afspraakdatums worden disabled -->
+                        return [!(isWeekend || isDisabled), ''];
+                    },
+                    onSelect: function (dateText) {
+                        $('#{{ form.date.vars.id }}').val(dateText);
+                    }
+                });
 
-                    <!-- Weekenden en onbeschikbare afspraakdatums worden disabled -->
-                    return [!(isWeekend || isDisabled), ''];
-                },
-                onSelect: function (dateText) {
-                    $('#{{ form.date.vars.id }}').val(dateText);
-                }
+                // Voeg een event listener toe aan het formulier om te controleren op lege datumvelden
+                $('form').submit(function (event) {
+                    // Controleer of de datum leeg is
+                    if ($('#{{ form.date.vars.id }}').val() === '') {
+                        // Toon een foutmelding
+                        $('#{{ form.date.vars.id }}').addClass('is-invalid');
+                        // Voorkom dat het formulier wordt ingediend
+                        event.preventDefault();
+                    }
+                });
+
             });
 
-            // Voeg een event listener toe aan het formulier om te controleren op lege datumvelden
-            $('form').submit(function (event) {
-                // Controleer of de datum leeg is
-                if ($('#{{ form.date.vars.id }}').val() === '') {
-                    // Toon een foutmelding
-                    $('#{{ form.date.vars.id }}').addClass('is-invalid');
-                    // Voorkom dat het formulier wordt ingediend
-                    event.preventDefault();
-                }
+            // postcode api
+            $(document).ready(function() {
+                $('.postcode, .huisnummer').change(function() {
+                    const postcode = $('.postcode').val();
+                    const huisnummer = $('.huisnummer').val();
+
+                    $.ajax({
+                        url: 'https://postcode.tech/api/v1/postcode',
+                        method: 'GET',
+                        dataType: 'json',
+                        headers: {
+                            'Authorization': 'Bearer 09c4c3cf-fc62-4ad2-9bcc-f6ebb46fbf36'
+                        },
+                        data: {
+                            postcode: postcode,
+                            number: huisnummer
+                        },
+                        success: function(response) {
+                            console.log('API Response:', response);
+
+                            let city = document.querySelector('.city');
+                            let street = document.querySelector('.straatnaam');
+
+                            if (street) {
+                                city.value = response.city;
+                                street.value = response.street;
+                            } else {
+                                console.error('Element not found.');
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error('API Error:', error);
+                        }
+                    });
+                });
             });
+        </script>
 
-        });
-    </script>
-
-{% endblock %}
+    {% endblock %}

@@ -41,8 +41,16 @@ nav {
     padding: 16px 6% 30px;
 }
 
-.nav-logo {
+nav .nav-logo {
     width: 250px;
+}
+
+nav .user_icon_navigation {
+    width: 36px;
+    height: 36px;
+    border: none;
+    background-color: white;
+    border-radius: 16px;
 }
 
 nav a {
@@ -118,10 +126,9 @@ nav .username {
 }
 
 .products .product_card .product_img {
-    object-fit: cover;
-    width: 150px;
-    height: 275px;
+    max-width: 150px;
     margin-right: 30px;
+    object-fit: cover;
 }
 
 .products .product_card .card_div {
@@ -133,7 +140,7 @@ nav .username {
 }
 
 .products .product_card a {
-    background-color: #04AA6D;
+    background-image: linear-gradient(to right, #1bad69, #1b985d);
     color: white;
     padding: 6px 18px;
     border-radius: 6px;
@@ -226,6 +233,11 @@ nav .username {
     max-width: 850px;
 }
 
+.product_page h1 {
+    font-size: 36px;
+    color: #1c1c1c;
+}
+
 .product_page .product_img_vervolgpagina {
     max-height: 375px;
     margin-right: 30px;
@@ -241,8 +253,48 @@ nav .username {
     margin-bottom: 8px;
 }
 
+.product_page .add_btn {
+    background-image: linear-gradient(to right, #1bad69, #1b985d);
+    color: white;
+    padding: 8px 24px;
+    border-radius: 6px;
+    border: none;
+}
+
 .product_page .payments_methods {
     width: 400px;
+}
+
+@media (min-width: 767px) {
+    .product_page h2 {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .product_page {
+        margin-top: 20px;
+    }
+    .product_page h1 {
+        display: none;
+    }
+
+    .product_page h2 {
+        font-size: 30px;
+        display: block;
+    }
+}
+
+@media (max-width: 450px) {
+    .product_page .payments_methods {
+        width: 300px;
+    }
+}
+
+@media (max-width: 350px) {
+    .product_page .payments_methods {
+        width: 250px;
+    }
 }
 
 /* -- /contact -- */
@@ -264,7 +316,7 @@ nav .username {
     box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
     text-decoration: none;
     padding: 6px 24px;
-    border-radius: 0;
+    border-radius: 6px;
     border: none;
 }
 

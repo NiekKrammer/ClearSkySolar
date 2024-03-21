@@ -55,6 +55,9 @@ class Order
     #[ORM\Column(length: 50)]
     private ?string $postcode = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $city = null;
+
     public function __construct()
     {
         $this->orderItems = new ArrayCollection();
@@ -222,6 +225,18 @@ class Order
     public function setPostcode(string $postcode): static
     {
         $this->postcode = $postcode;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): static
+    {
+        $this->city = $city;
 
         return $this;
     }
