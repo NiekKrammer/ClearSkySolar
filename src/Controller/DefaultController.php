@@ -11,6 +11,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
@@ -76,6 +77,12 @@ class DefaultController extends AbstractController
         return $this->render('order_history.html.twig', [
             'orders' => $orders,
         ]);
+    }
+
+    #[Route('/error', name: 'error')]
+    public function showException(\Throwable $exception): Response
+    {
+        return $this->render('error.html.twig');
     }
 
     #[Route('/contact', name: 'app_contact')]

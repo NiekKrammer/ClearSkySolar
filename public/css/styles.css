@@ -193,6 +193,24 @@ nav .username {
     }
 }
 
+/* -- how to use -- */
+.how_to_use h4 {
+    margin: 30px 0 15px 0;
+}
+
+.how_to_use p {
+    word-spacing: 2px;
+    margin-bottom: 50px;
+}
+
+.how_to_use  hr {
+    width: 400px;
+    margin-bottom: 70px;
+    height: 2px;
+    border: none;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
 /* -- over ons section -- */
 .over_ons hr {
     width: 275px;
@@ -318,4 +336,15 @@ nav .username {
     padding: 6px 24px;
     border-radius: 6px;
     border: none;
+}
+
+/* -- error page -- */
+.error_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    height: calc(100vh - 280px);
+    padding: 40px;
 }

@@ -165,7 +165,7 @@ class OrderController extends AbstractController
         $fontImport = '@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");';
 
         $phpmailer->Body = '<style>' . $fontImport . ' * { box-sizing: border-box; font-family: "Poppins", sans-serif; text-decoration: none !important; } </style>' .
-            '<div style="background-color: #e9ecef; padding: 20px;">
+            '<div style="background-color: #e9ecef;">
          <h1 style="color: #0a0a0a; margin-top: 0; margin-bottom: 18px;">ClearSkySolar</h1>
             <h2 style="font-size: 22px; color: #0a0a0a;">Bevestiging van uw bestelling</h2>
             ' . $orderDetails . '
