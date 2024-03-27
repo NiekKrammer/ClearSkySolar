@@ -1,5 +1,5 @@
 .shopping_cart_sidebar {
-    background-color: #f3efef;
+    background-color: #5798d9;
     border: none;
     outline: none;
     transition: 0.4s;
@@ -37,9 +37,8 @@
 }
 
 .shopping_cart_sidebar a {
-    background-color: #3b82f6;
-    color: white;
-    border-radius: 6px;
+    background-color: #ffffff;
+    color: #000000;
     text-decoration: none;
     padding: 10px 24px;
     border: none;

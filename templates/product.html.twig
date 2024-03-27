@@ -11,6 +11,7 @@
                      alt="{{ product.name }}" class="product_img_vervolgpagina">
                 <div class="d-flex flex-column mt-4 mt-md-5">
                     <h1>{{ product.name }}</h1>
+                    <p>{{ product.description }}</p>
                     <p>{{ product.info2 | raw }}</p>
                 </div>
             </div>
@@ -38,13 +39,10 @@
 
             button.addEventListener('click', function () {
                 icon.classList.replace('fa-cart-shopping', 'fa-check-circle');
-
                 setTimeout(() => {
                     icon.classList.replace('fa-check-circle', 'fa-cart-shopping');
-                    btnText.textContent = 'Plaats in winkelwagen';
                 }, 500);
             });
         });
-
     </script>
 {% endblock %}

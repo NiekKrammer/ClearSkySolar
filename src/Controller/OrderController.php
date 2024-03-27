@@ -122,22 +122,22 @@ class OrderController extends AbstractController
         $this->entityManager->flush();
 
 
-//        $phpmailer = new PHPMailer();
-//        $phpmailer->isSMTP();
-//        $phpmailer->Host = 'live.smtp.mailtrap.io';
-//        $phpmailer->SMTPAuth = true;
-//        $phpmailer->Port = 587;
-//        $phpmailer->Username = 'api';
-//        $phpmailer->Password = '02f2f5bffcc043a266cd7481fdf9acc2';
-
-        // test email smtp
         $phpmailer = new PHPMailer();
         $phpmailer->isSMTP();
-        $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
+        $phpmailer->Host = 'live.smtp.mailtrap.io';
         $phpmailer->SMTPAuth = true;
-        $phpmailer->Port = 2525;
-        $phpmailer->Username = 'c1f81d14309b54';
-        $phpmailer->Password = '602f783afea780';
+        $phpmailer->Port = 587;
+        $phpmailer->Username = 'api';
+        $phpmailer->Password = '02f2f5bffcc043a266cd7481fdf9acc2';
+
+        // test email smtp
+        //        $phpmailer = new PHPMailer();
+        //        $phpmailer->isSMTP();
+        //        $phpmailer->Host = 'sandbox.smtp.mailtrap.io';
+        //        $phpmailer->SMTPAuth = true;
+        //        $phpmailer->Port = 2525;
+        //        $phpmailer->Username = 'c1f81d14309b54';
+        //        $phpmailer->Password = '602f783afea780';
 
         $phpmailer->setFrom('clearskysolar@niekkrammer.nl', 'ClearSkySolar');
         $phpmailer->addAddress($userEmail);
@@ -165,18 +165,7 @@ class OrderController extends AbstractController
         $fontImport = '@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");';
 
         $phpmailer->Body = '<style>' . $fontImport . ' * { box-sizing: border-box; font-family: "Poppins", sans-serif; text-decoration: none !important; } </style>' .
-            '<div style="background-image: linear-gradient(
-            180deg,
-            hsl(201, 96%, 70%) 0%,
-            hsl(204, 95%, 75%) 2%,
-            hsl(206, 92%, 80%) 4%,
-            hsl(207, 89%, 83%) 6%,
-            hsl(208, 86%, 85%) 8%,
-            hsl(209, 80%, 87%) 10%,
-            hsl(214, 59%, 88%) 12%,
-            hsl(227, 37%, 93%) 15%,
-            hsl(210, 25%, 95%) 20%
-                ); padding: 20px;">
+            '<div style="background-color: #e9ecef; padding: 20px;">
          <h1 style="color: #0a0a0a; margin-top: 0; margin-bottom: 18px;">ClearSkySolar</h1>
             <h2 style="font-size: 22px; color: #0a0a0a;">Bevestiging van uw bestelling</h2>
             ' . $orderDetails . '

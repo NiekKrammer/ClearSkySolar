@@ -62,9 +62,6 @@ class OrderType extends AbstractType
             ->add('phoneNr', TelType::class, [
                 'label' => 'Telefoonnummer',
                 'required' => true,
-                'attr' => [
-                    'class' => 'w-50',
-                ]
             ])
             ->add('date', DateType::class, [
                 'label' => 'Kies een beschikbare afspraakdatum',
