@@ -79,12 +79,6 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    #[Route('/error', name: 'error')]
-    public function showException(\Throwable $exception): Response
-    {
-        return $this->render('error.html.twig');
-    }
-
     #[Route('/contact', name: 'app_contact')]
     public function contact(Request $request): Response
     {

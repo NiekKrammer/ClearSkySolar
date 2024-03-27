@@ -199,7 +199,7 @@ nav .username {
 }
 
 .how_to_use p {
-    word-spacing: 2px;
+    word-spacing: 1px;
     margin-bottom: 50px;
 }
 
@@ -222,7 +222,7 @@ nav .username {
 
 .over_ons p {
     margin-bottom: 60px;
-    word-spacing: 2px;
+    word-spacing: 1px;
 }
 
 /* -- homepage contact section -- */
@@ -333,8 +333,8 @@ nav .username {
     color: white;
     box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
     text-decoration: none;
-    padding: 6px 24px;
-    border-radius: 6px;
+    padding: 8px 24px;
+    border-radius: 3px;
     border: none;
 }
 

@@ -34,7 +34,7 @@ class ProductsCrudController extends AbstractCrudController
         yield TextField::new('description')->setLabel('beschrijving')
             ->setRequired(false);
         yield TextareaField::new('info2', 'preview')->renderAsHtml();
-        yield TextEditorField::new('info')->setLabel('informatie vervolgpagina')
+        yield TextareaField::new('info')->setLabel('informatie vervolgpagina')
             ->setRequired(false);
     }
 
