@@ -42,7 +42,9 @@ nav {
 }
 
 nav .nav-logo {
-    width: 250px;
+    width: 300px;
+    color: rgba(35, 34, 34, 0.89);
+
 }
 
 nav .user_icon_navigation {
@@ -97,7 +99,10 @@ nav .username {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px 120px;
+    margin: 30px auto;
+    text-align: center;
+    gap: 50px;
+    max-width: 1000px;
     height: calc(100vh - 134px);
 }
 
@@ -114,6 +119,34 @@ nav .username {
 
 .herosection .hero_img {
     width: 450px;
+}
+
+@media (max-width: 1300px) {
+    nav {
+        padding: 16px 4% 30px;
+    }
+    .herosection {
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 0 50px;
+    }
+}
+
+@media (max-width: 800px) {
+    .herosection h1 {
+        font-size: 24px;
+    }
+
+    .herosection .hero_img {
+        width: 350px;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .herosection .hero_img {
+        width: 250px;
+    }
 }
 
 /* -- products homepage - */
@@ -162,18 +195,6 @@ nav .username {
 
     .products {
         margin-top: 75px;
-    }
-
-    .herosection h1 {
-        font-size: 24px;
-    }
-
-    .herosection .hero_img {
-        width: 350px;
-    }
-
-    .herosection h3 {
-        font-size: 20px;
     }
 
     .products .product_card {
@@ -258,7 +279,7 @@ nav .username {
 
 .product_page .product_img_vervolgpagina {
     max-height: 375px;
-    margin-right: 30px;
+    margin-right: 25px;
     object-fit: cover;
 }
 
