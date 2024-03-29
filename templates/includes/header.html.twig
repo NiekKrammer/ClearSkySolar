@@ -2,13 +2,13 @@
     <a href="{{ path('app_default') }}"><img src="{{ asset('assets/logos/logo_clearskysolar_transparent.png') }}" alt="logo"
                                              class="nav-logo"></a>
 
-    <div class="d-flex justify-content-center align-items-center gap-2">
+    <div class="d-flex justify-content-center align-items-center">
 
         <div class="dropdown">
 
             <button class="user_icon_navigation" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                <i class="fa-solid fa-user"></i></button>
+                <img src="assets/images/page/user_icon_nav.jpg" class="user_icon_nav"></button>
             <ul class="dropdown-menu">
                 {% if app.user %}
                 <a href="{{ path('app_order_history') }}" class="dropdown-item my-0 py-0 username">{{ app.user.username }}</a>

@@ -6,6 +6,10 @@
     text-decoration: none !important;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -42,17 +46,16 @@ nav {
 }
 
 nav .nav-logo {
-    width: 300px;
-    color: rgba(35, 34, 34, 0.89);
-
+    width: 275px;
 }
 
-nav .user_icon_navigation {
-    width: 40px;
-    height: 40px;
+nav button {
+    background-color: transparent;
     border: none;
-    border-radius: 50%;
-    background-color: white;
+}
+
+nav .user_icon_nav {
+    width: 32px;
 }
 
 nav a {
@@ -86,11 +89,15 @@ nav .username {
 }
 
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
     nav {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
+        padding: 16px 8% 30px;
+    }
+    nav .nav-logo {
+        width: 150px;
+    }
+    nav .user_icon_nav {
+        width: 28px;
     }
 }
 
@@ -99,37 +106,36 @@ nav .username {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 30px auto;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 40px;
     text-align: center;
-    gap: 50px;
-    max-width: 1000px;
-    height: calc(100vh - 134px);
+    max-width: 1100px;
+    height: calc(100vh - 143px);
+}
+
+.herosection img {
+    width: 350px;
 }
 
 .herosection h1 {
-    font-size: 30px;
+    font-size: 32px;
+    font-weight: 600;
     word-spacing: 5px;
     letter-spacing: 3px;
     line-height: 1.5;
+    margin-bottom: 15px;
 }
 
-.herosection span {
-    color: #358bcb;
+.herosection p {
+    max-width: 800px;
+    padding: 0 50px;
+    color: #1c1c1c;
 }
 
-.herosection .hero_img {
-    width: 450px;
-}
-
-@media (max-width: 1300px) {
-    nav {
-        padding: 16px 4% 30px;
-    }
-    .herosection {
-        display: flex;
-        flex-direction: column-reverse;
-        padding: 0 50px;
-    }
+.herosection a {
+    color: #312f2f;
+    margin-top: 30px;
 }
 
 @media (max-width: 800px) {
@@ -151,6 +157,7 @@ nav .username {
 
 /* -- products homepage - */
 .products {
+    padding: 0 10px;
     margin-bottom: 50px;
 }
 
