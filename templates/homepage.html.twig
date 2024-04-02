@@ -17,9 +17,9 @@
 
     <!-- herosection -->
     <div class="herosection">
-        <img src="assets/images/page/solar-panel.png"  data-aos="fade-right" data-aos-duration="1200">
-        <h1 data-aos="fade-right" data-aos-duration="1400">Start jouw duurzaamheid met one zonnepanelen!</h1>
-        <p data-aos="fade-right" data-aos-duration="1700" data-aos-delay="300">Ontdek hoe zonne-energie een duurzame
+        <img src="{{ asset('assets/images/page/hero-img.png') }}" data-aos="fade-right" data-aos-duration="2000">
+        <h1 data-aos="fade-right" data-aos-duration="1600">Start jouw duurzaamheid met onze zonnepanelen!</h1>
+        <p data-aos="fade-right" data-aos-duration="1200">Ontdek hoe zonne-energie een duurzame
             toekomst voor onze planeet en komende generaties mogelijk maakt. Wij bieden innovatieve oplossingen en
             deskundige begeleiding om je transitie naar duurzame energie te versnellen</p>
     </div>
@@ -35,7 +35,7 @@
             <hr class="mt-0 mb-5">
 
             {% for product in products %}
-                <div class="d-flex my-3 product_card col-12 mx-auto" data-aos="fade-up" data-aos-duration="1000">
+                <div class="my-3 product_card col-12 mx-auto" data-aos="fade-up" data-aos-duration="1000">
                     <img src="{{ asset('product_imgs/' ~ product.image_file) }}" class="product_img"
                          alt="{{ product.name }}">
                     <div class="d-flex flex-column mt-4">
@@ -60,31 +60,32 @@
         <h2 class="mt-5" data-aos="fade-right" data-aos-duration="1200">Onze werkwijze</h2>
         <hr class="mx-auto">
 
-        <h4 data-aos="fade-right" data-aos-duration="1300"><i class="fa-solid fa-screwdriver-wrench"></i> Installatie
-        </h4>
+        <i class="fa-solid fa-screwdriver-wrench fa-xl mb-4"></i>
+        <h4>Installatie</h4>
         <p>Onze professionele installateurs komen bij u langs om uw zonnepanelen vakkundig te installeren.</p>
 
-        <h4 data-aos="fade-right" data-aos-duration="1300"><i class="fa-solid fa-chart-column"></i> Monitoring</h4>
+        <i class="fa-solid fa-chart-column fa-xl mb-4"></i>
+        <h4>Monitoring</h4>
         <p>Volg de prestaties van uw panelen vanuit uw account met behulp van ons monitoringssysteem.</p>
 
-        <h4 data-aos="fade-right" data-aos-duration="1300"><i class="fa-solid fa-building-shield"></i> Garantie</h4>
+        <i class="fa-solid fa-building-shield fa-xl mb-4"></i>
+        <h4>Garantie</h4>
         <p>Met onze uitgebreide garantie bent u verzekerd van gemoedsrust en langdurige prestaties van uw
             zonnepanelen.</p>
     </div>
 
     <!-- over ons -->
-    <div class="over_ons container text-center col-md-5 col-10">
+    <div class="over_ons container text-center col-md-5 col-11">
         <h2 class="mt-5" data-aos="fade-right" data-aos-duration="1200">Over Ons</h2>
         <hr class="mx-auto">
-        <h4 data-aos="fade-right" data-aos-duration="1200" class="mb-3"><i class="fa-solid fa-layer-group"></i> Wie zijn
-            wij</h4>
+        <i class="fa-solid fa-layer-group fa-xl mb-4"></i>
+        <h4 class="mb-3">Wie zijn wij</h4>
         <p>Welkom bij ClearSkySolar! Uw partner in duurzame energieoplossingen in Nederland. Wij zijn
             gepassioneerd
             in het leveren van hoogwaardige zonnepaneeloplossingen, die niet alleen de energie-efficiëntie van uw huis
             of bedrijf verbeteren, maar ook bijdragen aan een schonere en groenere toekomst.</p>
-        <h4 data-aos="fade-right" data-aos-duration="1200" class="mb-3"><i class="fa-solid fa-rocket"></i> Onze Missie
-        </h4>
-
+        <i class="fa-solid fa-rocket fa-xl mb-4"></i>
+        <h4 class="mb-3"> Onze Missie</h4>
         <p>Bij ClearSkySolar hebben we ons tot doel gesteld om de transitie naar hernieuwbare energie te
             versnellen en
             tegelijkertijd onze klanten te voorzien van de best mogelijke service en ondersteuning. We geloven dat
@@ -93,9 +94,9 @@
     </div>
 
     <!-- contact -->
-    <div class="contact container text-center col-md-5 col-8">
-        <h4 data-aos="fade-right" data-aos-duration="1200" class="mb-3"><i class="fa-solid fa-paper-plane"></i> Neem
-            Contact Met Ons Op</h4>
+    <div class="contact container text-center col-md-5 col-11">
+        <i class="fa-solid fa-paper-plane fa-xl mb-4"></i>
+        <h4 class="mb-3">Neem Contact Met Ons Op</h4>
         <p class="mb-5">Of u nu geïnteresseerd bent in het installeren van zonnepanelen op uw woning of bedrijf, of
             gewoon meer wilt weten over de voordelen van zonne-energie, het team van ClearSkySolar staat voor u klaar.
             Neem vandaag nog contact met ons op voor een vrijblijvend adviesgesprek en ontdek hoe u kunt profiteren van

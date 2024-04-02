@@ -42,7 +42,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 6% 30px;
+    padding: 16px 6% 36px;
 }
 
 nav .nav-logo {
@@ -55,7 +55,7 @@ nav button {
 }
 
 nav .user_icon_nav {
-    width: 32px;
+    width: 28px;
 }
 
 nav a {
@@ -88,16 +88,23 @@ nav .username {
     top: -14px;
 }
 
-
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     nav {
-        padding: 16px 8% 30px;
+        padding: 16px 8% 36px;
     }
+
+    nav .nav-logo {
+        width: 200px;
+    }
+}
+
+@media (max-width: 400px) {
     nav .nav-logo {
         width: 150px;
     }
+
     nav .user_icon_nav {
-        width: 28px;
+        width: 26px;
     }
 }
 
@@ -108,28 +115,28 @@ nav .username {
     align-items: center;
     flex-direction: column;
     margin: 0 auto;
-    padding: 40px;
+    padding: 30px;
     text-align: center;
     max-width: 1100px;
-    height: calc(100vh - 143px);
+    height: calc(100vh - 149px);
 }
 
 .herosection img {
-    width: 350px;
+    width: 400px;
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
 }
 
 .herosection h1 {
     font-size: 32px;
-    font-weight: 600;
+    font-weight: 650;
     word-spacing: 5px;
     letter-spacing: 3px;
     line-height: 1.5;
-    margin-bottom: 15px;
+    margin: 8px 0 16px 0;
 }
 
 .herosection p {
     max-width: 800px;
-    padding: 0 50px;
     color: #1c1c1c;
 }
 
@@ -142,18 +149,26 @@ nav .username {
     .herosection h1 {
         font-size: 24px;
     }
-
-    .herosection .hero_img {
-        width: 350px;
-    }
-
 }
 
-@media (max-width: 500px) {
-    .herosection .hero_img {
-        width: 250px;
+@media (max-width: 600px) {
+    .herosection {
+        height: calc(100vh - 122px);
+    }
+    .herosection img {
+        width: 275px;
     }
 }
+
+@media (max-width: 400px) {
+    .herosection {
+        height: calc(100vh - 105px);
+    }
+    .herosection img {
+        width: 225px;
+    }
+}
+
 
 /* -- products homepage - */
 .products {
@@ -162,12 +177,14 @@ nav .username {
 }
 
 .products .product_card {
+    display: flex;
     max-width: 800px;
 }
 
 .products .product_card .product_img {
     max-width: 150px;
     margin-right: 30px;
+    filter: drop-shadow(-4px 0px 5px rgba(0, 0, 0, 0.25));
     object-fit: cover;
 }
 
@@ -194,7 +211,6 @@ nav .username {
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
-
 @media (max-width: 800px) {
     .product_page {
         margin-top: 30px;
@@ -216,22 +232,25 @@ nav .username {
         width: 95%;
     }
 
-    .contact_page form {
-        width: 95%;
+    .products .product_card .product_img {
+        max-width: 125px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 450px) {
+    .products .product_card {
+        flex-direction: column;
     }
 }
 
 /* -- how to use -- */
-.how_to_use h4 {
-    margin: 30px 0 15px 0;
-}
-
 .how_to_use p {
     word-spacing: 1px;
     margin-bottom: 50px;
 }
 
-.how_to_use  hr {
+.how_to_use hr {
     width: 400px;
     margin-bottom: 70px;
     height: 2px;
@@ -288,6 +307,7 @@ nav .username {
     max-height: 375px;
     margin-right: 25px;
     object-fit: cover;
+    filter: drop-shadow(-4px 0px 5px rgba(0, 0, 0, 0.25));
 }
 
 .product_page i {
@@ -311,23 +331,9 @@ nav .username {
     width: 400px;
 }
 
-@media (min-width: 767px) {
-    .product_page h2 {
-        display: none;
-    }
-}
-
 @media (max-width: 767px) {
     .product_page {
         margin-top: 20px;
-    }
-    .product_page h1 {
-        display: none;
-    }
-
-    .product_page h2 {
-        font-size: 30px;
-        display: block;
     }
 }
 
@@ -364,6 +370,12 @@ nav .username {
     padding: 8px 24px;
     border-radius: 3px;
     border: none;
+}
+
+@media (max-width: 800px) {
+    .contact_page form {
+        width: 95%;
+    }
 }
 
 /* -- error page -- */

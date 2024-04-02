@@ -6,11 +6,10 @@
 
         <div class="my-3 col-12 mx-auto product_card" data-aos="fade-up" data-aos-duration="1000">
             <div class="d-block d-md-flex">
-                <h2 class="show_h1">{{ product.name }}</h2>
                 <img src="{{ asset('product_imgs/' ~ product.image_file) }}"
                      alt="{{ product.name }}" class="product_img_vervolgpagina">
                 <div class="d-flex flex-column mt-4 mt-md-5">
-                    <h1 data-aos="fade-left" data-aos-duration="1200">{{ product.name }}</h1>
+                    <h1>{{ product.name }}</h1>
                     <p>{{ product.description }}</p>
                     <p>{{ product.info2 | raw }}</p>
                 </div>
@@ -27,7 +26,7 @@
                     </button>
                 </div>
             </div>
-            <img src="../assets/images/page/payment-methods.png" class="payments_methods">
+            <img src="{{ asset('assets/images/page/payment-methods.png') }}" class="payments_methods">
         </div>
 
     </div>

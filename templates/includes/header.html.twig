@@ -8,7 +8,8 @@
 
             <button class="user_icon_navigation" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                <img src="assets/images/page/user_icon_nav.jpg" class="user_icon_nav"></button>
+                <img src="{{ asset('assets/images/page/user_icon_nav.jpg') }}" class="user_icon_nav">
+            </button>
             <ul class="dropdown-menu">
                 {% if app.user %}
                 <a href="{{ path('app_order_history') }}" class="dropdown-item my-0 py-0 username">{{ app.user.username }}</a>
