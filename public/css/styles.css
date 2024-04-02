@@ -90,7 +90,7 @@ nav .username {
 
 @media (max-width: 600px) {
     nav {
-        padding: 16px 8% 36px;
+        padding: 16px 5% 36px;
     }
 
     nav .nav-logo {
@@ -163,6 +163,7 @@ nav .username {
 @media (max-width: 400px) {
     .herosection {
         height: calc(100vh - 105px);
+        padding: 18px;
     }
     .herosection img {
         width: 225px;
@@ -217,7 +218,7 @@ nav .username {
     }
 
     .products {
-        margin-top: 75px;
+        margin-top: 60px;
     }
 
     .products .product_card {
@@ -246,8 +247,8 @@ nav .username {
 
 /* -- how to use -- */
 .how_to_use p {
+    margin-bottom: 60px;
     word-spacing: 1px;
-    margin-bottom: 50px;
 }
 
 .how_to_use hr {
@@ -258,7 +259,19 @@ nav .username {
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
-/* -- over ons section -- */
+@media (max-width: 450px) {
+    .how_to_use hr {
+        width: 95%;
+    }
+}
+
+/* -- over ons -- */
+
+.over_ons p {
+    margin-bottom: 60px;
+    word-spacing: 1px;
+}
+
 .over_ons hr {
     width: 275px;
     margin-bottom: 70px;
@@ -267,12 +280,13 @@ nav .username {
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
-.over_ons p {
-    margin-bottom: 60px;
-    word-spacing: 1px;
+@media (max-width: 450px) {
+    .over_ons hr {
+        width: 95%;
+    }
 }
 
-/* -- homepage contact section -- */
+/* -- contact -- */
 .contact p {
     word-spacing: 2px;
 }
@@ -287,7 +301,9 @@ nav .username {
     border: none;
 }
 
-/* --- EINDE HOMEPAGE --- */
+
+/* ------ EINDE HOMEPAGE ------ */
+
 
 /* -- /product -- */
 .product_page {

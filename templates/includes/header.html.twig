@@ -63,9 +63,9 @@
         <div>
             <p id="total-price"></p>
             {% if app.request.get('_route') == "app_order" %}
-                <a href="{{ path('app_order') }}">Wijzig Bestelling</a>
+                <a href="{{ path('app_order') }}">Wijzig bestelling</a>
             {% else %}
-                <a href="{{ path('app_order') }}">Verder naar bestellen <i
+                <a href="{{ path('app_order') }}">Naar bestellen <i
                             class="fa-solid fa-arrow-right mx-1"></i></a>
             {% endif %}
         </div>
