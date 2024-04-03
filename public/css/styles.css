@@ -222,15 +222,15 @@ nav .username {
     }
 
     .products .product_card {
-        width: 95%;
+        width: 92%;
     }
 
     .products hr {
-        width: 95%;
+        width: 90%;
     }
 
     .product_page .product_card {
-        width: 95%;
+        width: 92%;
     }
 
     .products .product_card .product_img {
@@ -261,7 +261,7 @@ nav .username {
 
 @media (max-width: 450px) {
     .how_to_use hr {
-        width: 95%;
+        width: 92%;
     }
 }
 
@@ -281,7 +281,7 @@ nav .username {
 
 @media (max-width: 450px) {
     .over_ons hr {
-        width: 95%;
+        width: 92%;
     }
 }
 
