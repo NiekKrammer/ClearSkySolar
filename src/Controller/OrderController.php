@@ -139,14 +139,14 @@ class OrderController extends AbstractController
         //        $phpmailer->Username = 'c1f81d14309b54';
         //        $phpmailer->Password = '602f783afea780';
 
-        $phpmailer->setFrom('clearskysolar@niekkrammer.nl', 'ClearSkySolar');
+        $phpmailer->setFrom('clearskysolar@niekkrammer.nl', 'clearskySolar');
         $phpmailer->addAddress($userEmail);
         $phpmailer->addAddress($loggedInUserEmail);
         $voornaam = $form->get('voornaam')->getData();
         $achternaam = $form->get('achternaam')->getData();
 
         $phpmailer->isHTML(true);
-        $phpmailer->Subject = 'Bestelling ClearSkySolar';
+        $phpmailer->Subject = 'Bestelling clearskySolar';
 
         $orderDetails = '<p style="font-size: 15px; color: #0a0a0a;">Beste ' . $voornaam . ' ' . $achternaam . ', hier zijn de details van je bestelling:</p>';
         $orderDetails .= '<p style="color: #0a0a0a;">We komen langs op: ' . $order->getDate()->format('d-m-Y') . $order->getTime()->format(' H:i') . '</p>';
@@ -170,7 +170,7 @@ class OrderController extends AbstractController
             <h2 style="font-size: 22px; color: #0a0a0a;">Bevestiging van uw bestelling</h2>
             ' . $orderDetails . '
             <a href="http://localhost/clearskysolar/public/" style="background-color: #3b82f6; color: white; padding: 8px 24px; border-radius: 6px; text-decoration: none; border: none; 
-            font-weight: bold;">Ga terug naar de website</a>
+            font-weight: bold;">Terug naar clearskySolar</a>
           </div>';
 
         try {

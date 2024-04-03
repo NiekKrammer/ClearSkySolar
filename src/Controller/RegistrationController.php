@@ -100,7 +100,7 @@ class RegistrationController extends AbstractController
 
         $phpmailer->setFrom('clearskysolar@niekkrammer.nl');
         $phpmailer->addAddress($user->getEmail(), $user->getUsername());
-        $phpmailer->Subject = 'Registratiebevestiging ClearSkySolar';
+        $phpmailer->Subject = 'Registratiebevestiging clearskySolar';
         $phpmailer->isHTML(true);
         $phpmailer->Body = $this->renderView('emails/registration.html.twig', [
             'username' => $user->getUsername(),
@@ -112,5 +112,4 @@ class RegistrationController extends AbstractController
             dump($e->getMessage());
         }
     }
-
 }
