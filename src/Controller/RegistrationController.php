@@ -96,7 +96,7 @@ class RegistrationController extends AbstractController
         $phpmailer->SMTPAuth = true;
         $phpmailer->Port = 587;
         $phpmailer->Username = 'api';
-        $phpmailer->Password = '67a481dd00090e37922f82e2d6f458d4';
+        $phpmailer->Password = '02f2f5bffcc043a266cd7481fdf9acc2';
 
         $phpmailer->setFrom('clearskysolar@niekkrammer.nl');
         $phpmailer->addAddress($user->getEmail(), $user->getUsername());
