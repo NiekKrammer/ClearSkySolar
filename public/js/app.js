@@ -89,7 +89,7 @@ function generateCartItems(item) {
         <p class="added_product">${item.name} - € ${(item.price * item.quantity).toFixed(2)}</p>
         <div class="d-flex align-items-center gap-2">
             <button class="decrease-item" data-product-id="${item.productID}">
-                ${item.quantity === 1 ? '<i class="fa-solid fa-trash-can fa-sm delete_icon"></i>' : '-'}
+                ${item.quantity === 1 ? '<i class="fa-solid fa-trash-can fa-xs delete_icon"></i>' : '-'}
             </button>
             <p class="item-quantity cart_quantity">${item.quantity}</p>
             <button class="increase-item" data-product-id="${item.productID}">+</button>

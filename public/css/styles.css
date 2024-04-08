@@ -3,7 +3,7 @@
 * {
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 html {
@@ -28,8 +28,13 @@ body {
             hsl(214, 59%, 88%) 12%,
             hsl(227, 37%, 93%) 15%,
             hsl(210, 25%, 95%) 20%,
-            #e9ecef 100%
+            #eeeff3 100%
     );
+}
+
+a,
+button {
+    text-decoration: none;
 }
 
 a:hover, button:hover, .cart-icon:hover {
@@ -99,14 +104,21 @@ nav .username {
 }
 
 @media (max-width: 400px) {
-    nav .nav-logo {
-        width: 150px;
-    }
-
     nav .user_icon_nav {
         width: 26px;
     }
 }
+
+@media (max-width: 360px) {
+    nav .nav-logo {
+        width: 175px;
+    }
+
+    nav .user_icon_nav {
+        width: 24px;
+    }
+}
+
 
 /* -- herosection - */
 .herosection {
@@ -155,6 +167,7 @@ nav .username {
     .herosection {
         height: calc(100vh - 122px);
     }
+
     .herosection img {
         width: 275px;
     }
@@ -165,6 +178,7 @@ nav .username {
         height: calc(100vh - 105px);
         padding: 18px;
     }
+
     .herosection img {
         width: 225px;
     }
@@ -177,6 +191,11 @@ nav .username {
     margin-bottom: 50px;
 }
 
+.products h2 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
 .products .product_card {
     display: flex;
     max-width: 800px;
@@ -184,9 +203,13 @@ nav .username {
 
 .products .product_card .product_img {
     max-width: 150px;
-    margin-right: 30px;
+    margin-right: 25px;
     filter: drop-shadow(-4px 0px 5px rgba(0, 0, 0, 0.25));
     object-fit: cover;
+}
+
+.products .product_card h3 {
+    font-weight: 550;
 }
 
 .products .product_card .card_div {
@@ -245,38 +268,32 @@ nav .username {
     }
 }
 
-/* -- how to use -- */
-.how_to_use p {
+/* -- aanpak -- */
+.aanpak h2 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.aanpak p {
     margin-bottom: 60px;
     word-spacing: 1px;
 }
 
-.how_to_use hr {
-    width: 400px;
-    margin-bottom: 70px;
-    height: 2px;
-    border: none;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
-}
-
 @media (max-width: 450px) {
-    .how_to_use hr {
+    .aanpak hr {
         width: 92%;
     }
 }
 
 /* -- over ons -- */
+.over_ons h2 {
+    font-size: 32px;
+    font-weight: 600;
+}
+
 .over_ons p {
     margin-bottom: 60px;
     word-spacing: 1px;
-}
-
-.over_ons hr {
-    width: 275px;
-    margin-bottom: 70px;
-    height: 2px;
-    border: none;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
 
 @media (max-width: 450px) {
@@ -291,17 +308,16 @@ nav .username {
 }
 
 .contact a {
-    color: white;
-    background-color: #3b82f6;
-    text-decoration: none;
-    padding: 8px 24px;
-    box-shadow: rgba(0, 0, 0, 0.15) 2px 2px 3px;
-    border-radius: 3px;
-    border: none;
+    border: 1px solid #565656;
+    border-radius: 30px;
+    padding: 6px 28px;
+    color: #565656;
+    font-size: 18px;
+    font-weight: 450;
 }
 
 
-/* ------ EINDE HOMEPAGE ------ */
+/* --------- EINDE HOMEPAGE --------- */
 
 
 /* -- /product -- */
@@ -315,6 +331,7 @@ nav .username {
 
 .product_page h1 {
     font-size: 36px;
+    font-weight: 550;
     color: #1c1c1c;
 }
 
@@ -350,6 +367,7 @@ nav .username {
     .product_page {
         margin-top: 20px;
     }
+
     .product_page h1 {
         font-size: 30px;
     }

@@ -40,7 +40,7 @@ class OrderController extends AbstractController
         $orders = $this->orderRepository->findAll();
 
         // Haal alle gegevens van de ingelogde gebruiker op
-        $user = $this->UserRepository->findAll();
+        // $user = $this->UserRepository->findAll();
         $user = $this->getUser();
 
         // Haal de ingelogde gebruiker zijn email op
@@ -62,10 +62,6 @@ class OrderController extends AbstractController
                 return $this->redirectToRoute('app_order');
             }
         }
-
-        $postcode = $form->get('postcode')->getData();
-        $huisnummer = $form->get('huisnummer')->getData();
-
 
         $userEmail = $form->get('email')->getData();
 
@@ -121,7 +117,6 @@ class OrderController extends AbstractController
         $this->entityManager->persist($order);
         $this->entityManager->flush();
 
-
         $phpmailer = new PHPMailer();
         $phpmailer->isSMTP();
         $phpmailer->Host = 'live.smtp.mailtrap.io';
@@ -169,7 +164,7 @@ class OrderController extends AbstractController
          <h1 style="color: #0a0a0a; margin-top: 0; margin-bottom: 18px;">ClearSkySolar</h1>
             <h2 style="font-size: 22px; color: #0a0a0a;">Bevestiging van uw bestelling</h2>
             ' . $orderDetails . '
-            <a href="http://localhost/clearskysolar/public/" style="background-color: #3b82f6; color: white; padding: 8px 24px; border-radius: 6px; text-decoration: none; border: none; 
+            <a href="http://localhost/clearskysolar/public/" style="background-color: #3b82f6; color: white; padding: 10px 26px; border-radius: 6px; text-decoration: none; border: none; 
             font-weight: bold;">Terug naar clearskySolar</a>
           </div>';
 

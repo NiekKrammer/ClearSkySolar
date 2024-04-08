@@ -17,5 +17,5 @@ framework:
     php_errors:
         log: true
 
-    # Define your custom error controller here
+    # Custom error controller
     error_controller: 'App\Controller\ErrorController::showError'
