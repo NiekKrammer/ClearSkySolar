@@ -119,7 +119,6 @@ nav .username {
     }
 }
 
-
 /* -- herosection - */
 .herosection {
     display: flex;
@@ -274,8 +273,12 @@ nav .username {
     }
 }
 
-
 /* -- over ons, aanpak -- */
+.card {
+    border-radius: 6px;
+    border: none;
+}
+
 h2 {
     font-size: 32px;
     font-weight: bold;
