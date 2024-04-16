@@ -27,8 +27,8 @@ body {
             hsl(209, 80%, 87%) 10%,
             hsl(214, 59%, 88%) 12%,
             hsl(227, 37%, 93%) 15%,
-            hsl(210, 25%, 95%) 20%,
-            #f3f3f6 100%
+            hsl(0, 0%, 100%) 20%,
+            #fcfcfc 100%
     );
 }
 
@@ -169,21 +169,20 @@ nav .username {
     }
 
     .herosection img {
-        width: 275px;
+        width: 290px;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 360px) {
     .herosection {
-        height: calc(100vh - 105px);
-        padding: 18px;
+        height: calc(100vh - 113px);
+        padding: 24px;
     }
 
     .herosection img {
         width: 225px;
     }
 }
-
 
 /* -- products homepage - */
 .products {
@@ -192,8 +191,9 @@ nav .username {
 }
 
 .products h2 {
-    font-size: 30px;
+    font-size: 32px;
     font-weight: 600;
+    text-align: center;
 }
 
 .products .product_card {
@@ -209,11 +209,11 @@ nav .username {
 }
 
 .products .product_card h3 {
-    font-weight: 550;
+    font-weight: 650;
 }
 
 .products .product_card .card_div {
-    transform: translateY(-10px);
+    transform: translateY(-11px);
 }
 
 .products .product_card .price {
@@ -221,10 +221,16 @@ nav .username {
 }
 
 .products .product_card a {
-    background-image: linear-gradient(to right, #1bad69, #1b985d);
-    color: white;
-    padding: 6px 18px;
+    color: #111;
     border-radius: 6px;
+    padding: 6px 20px;
+    border: 1px solid #111;
+    font-weight: 600;
+}
+
+.products .product_card a:hover {
+    background-color: #111;
+    color: white;
 }
 
 .products hr {
@@ -232,7 +238,7 @@ nav .username {
     margin: 25px auto;
     height: 2px;
     border: none;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    background-image: linear-gradient(to right, #ccc, #171717, #ccc);
 }
 
 @media (max-width: 800px) {
@@ -244,13 +250,13 @@ nav .username {
         width: 95%;
     }
 
-    .products hr {
-        width: 92%;
-    }
-
     .products .product_card .product_img {
         max-width: 125px;
         margin-right: 20px;
+    }
+
+    .products hr {
+        width: 92%;
     }
 }
 
@@ -259,87 +265,59 @@ nav .username {
         flex-direction: column;
     }
 
+    .products .product_card .card_div {
+        transform: unset;
+    }
+
     .products h2 {
         font-size: 28px;
     }
 }
 
-/* -- aanpak -- */
-.aanpak h2 {
-    font-size: 30px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.aanpak h2:after, .aanpak h2:before {
-    content: '';
-    width: 60px;
-    height: 2px;
-    background-color: rgba(85, 85, 85, 0.5);
-    margin: 0 12px;
-}
-
-.aanpak p {
-    margin-bottom: 60px;
-    word-spacing: 1px;
+/* -- over ons, aanpak -- */
+h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 50px 0 10px 0;
+    text-align: center;
 }
 
 @media (max-width: 450px) {
-    .aanpak h2 {
+   h2 {
         font-size: 28px;
     }
 }
 
-
-/* -- over ons -- */
-.over_ons h2 {
-    font-size: 30px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.bg1 {
+    background: linear-gradient(to left, #CFF4FC, rgba(81, 144, 227, 0.7));
 }
 
-.over_ons h2:after, .over_ons h2:before {
-    content: '';
-    width: 60px;
-    height: 2px;
-    background-color: rgba(85, 85, 85, 0.5);
-    margin: 0 12px;
+.bg2 {
+    background: linear-gradient(to top, #CFF4FC, rgba(81, 144, 227, 0.7));
 }
 
-.over_ons p {
-    margin-bottom: 60px;
-    word-spacing: 1px;
+.bg3 {
+    background: linear-gradient(to right, #CFF4FC, rgba(81, 144, 227, 0.7));
 }
 
-@media (max-width: 450px) {
-    .over_ons h2 {
-        font-size: 28px;
-    }
+.bg4 {
+    background: linear-gradient(to left, #CFF4FC, rgba(23, 208, 125, 0.70));
 }
 
-/* -- contact -- */
-.contact p {
-    word-spacing: 2px;
+.bg5 {
+    background: linear-gradient(to top, #CFF4FC, rgba(23, 208, 125, 0.70));
 }
 
-.contact a {
-    border: 1px solid #3b82f6;
-    border-radius: 6px;
-    padding: 6px 28px;
-    color: #3b82f6;
+.bg6 {
+    background: linear-gradient(to right, #CFF4FC, rgba(23, 208, 125, 0.70));
+}
+
+.contact_link {
     font-size: 18px;
     font-weight: 450;
+    color: #111;
 }
-
-.contact a:hover {
-    background-color: #3b82f6;
-    color: #fff;
-}
-
 
 /* --------- EINDE HOMEPAGE --------- */
 
@@ -376,7 +354,7 @@ nav .username {
 }
 
 .product_page .add_btn {
-    background-image: linear-gradient(to right, #1bad69, #1b985d);
+    background-image: linear-gradient(to right, #118c6c, #0f9b76);
     color: white;
     padding: 8px 24px;
     border-radius: 6px;
