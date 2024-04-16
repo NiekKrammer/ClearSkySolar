@@ -220,11 +220,10 @@ nav .username {
 }
 
 .products .product_card a {
-    background-color: #c5c5c5;
-    color: #111;
+    background-color: #5190e3;
+    color: #fff;
     border-radius: 6px;
-    padding: 6px 20px;
-    border: 2px solid #111;
+    padding: 6px 22px;
     font-weight: 600;
 }
 
