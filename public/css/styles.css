@@ -220,16 +220,12 @@ nav .username {
 }
 
 .products .product_card a {
+    background-color: #c5c5c5;
     color: #111;
     border-radius: 6px;
     padding: 6px 20px;
-    border: 1px solid #111;
+    border: 2px solid #111;
     font-weight: 600;
-}
-
-.products .product_card a:hover {
-    background-color: #111;
-    color: white;
 }
 
 .products hr {
@@ -287,7 +283,7 @@ h2 {
 }
 
 @media (max-width: 450px) {
-   h2 {
+    h2 {
         font-size: 28px;
     }
 }
